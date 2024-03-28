@@ -14,7 +14,7 @@ protected:
 public:
 	std::string ReturnSceneName();
 	void DrawScene();
-	void HandleInput(char input);
+	virtual Scene* HandleInput(char input);
 private:
 	void DrawContent(int xPos, int yPos);
 	void DrawInformationPrompt(int xPos, int yPos, bool& retFlag);

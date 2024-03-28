@@ -20,11 +20,15 @@ void CarSystem::HandleInput(char input)
 		GoToMain();
 		break;
 	default:
+		Scene* tempSceneRef = m_currentScene->HandleInput(input);
+		if (tempSceneRef) {
+			m_currentScene = tempSceneRef;
+		}
 		break;
 	}
 }
 
 void CarSystem::GoToMain()
 {
-	m_currentScene = p_mainScene;
+	m_currentScene = m_sceneCollection.at(1);
 }

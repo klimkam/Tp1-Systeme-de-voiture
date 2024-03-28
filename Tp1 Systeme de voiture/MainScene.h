@@ -1,11 +1,15 @@
 #pragma once
 #include "Scene.h"
+#include "InventoryScene.h"
+#include "Scene.h"
+
 class MainScene : public Scene
 {
-	Scene* m_inventoryScene;
+	Scene* m_inventoryScene = new InventoryScene();
 	Scene* m_companyScene;
+
 public:
 	MainScene();
-	Scene* HandleInput();
+	Scene* HandleInput(char input) override;
 };
 

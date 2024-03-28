@@ -26,8 +26,9 @@ void Scene::DrawScene()
     }
 }
 
-void Scene::HandleInput(char input)
+Scene* Scene::HandleInput(char input)
 {
+    return NULL;
 }
 
 void Scene::DrawContent(int xPos, int yPos)
