@@ -4,8 +4,8 @@
 
 class Scene
 {
-	int m_sceneWidth = 25;
-	int m_sceneHeight = 100;
+	int m_sceneWidth = 29;
+	int m_sceneHeight = 120;
 
 	std::string m_sceneName = "Default Scene Name";
 	std::string m_informationPrompt = " Some Default Useful Information 1 Some Default Useful Information 2 Some Default Useful Information 3 Some Default Useful Information 4 Some Default Useful Information 5 Some Default Useful Information 6 Some Default Useful Information 7 Some Default Useful Information 8";
