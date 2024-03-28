@@ -8,8 +8,10 @@ int main() {
 	{
 		p_carSystem->RenderProgram();
 
-		std::string input;
+		char input;
 		std::cin >> input;
+
+		p_carSystem->HandleInput(input);
 	}
 
 	return 0;

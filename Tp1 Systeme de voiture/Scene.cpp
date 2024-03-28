@@ -26,6 +26,10 @@ void Scene::DrawScene()
     }
 }
 
+void Scene::HandleInput(char input)
+{
+}
+
 void Scene::DrawContent(int xPos, int yPos)
 {
     bool retFlag;
@@ -54,11 +58,11 @@ void Scene::DrawInformationPrompt(int xPos, int yPos, bool& retFlag)
         xPromptEndPosition = (maxPromptLenght + m_informationPrompt.size()) / 2;
     }
 
-    if (xPos > yPromptStartPosition && xPos < yPromptEndPosition && yPos > xPromptStartPosition && yPos < xPromptEndPosition) {
-        short currentChar = yPos - 2 + ((xPos - yPromptStartPosition - 1) * maxPromptLenght);
+    if (xPos > yPromptStartPosition && xPos < yPromptEndPosition && yPos > xPromptStartPosition && yPos <= xPromptEndPosition) {
+        short currentChar = yPos - xPromptStartPosition + ((xPos - yPromptStartPosition - 1) * maxPromptLenght) - 1;
 
         if (currentChar >= m_informationPrompt.size()) {
-            cout << " ";
+            std::cout << " ";
             return;
         }
 
