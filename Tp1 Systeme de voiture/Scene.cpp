@@ -59,7 +59,7 @@ void Scene::DrawInformationPrompt(int xPos, int yPos, bool& retFlag)
         xPromptEndPosition = (maxPromptLenght + m_informationPrompt.size()) / 2;
     }
 
-    if (xPos > yPromptStartPosition && xPos < yPromptEndPosition && yPos > xPromptStartPosition && yPos <= xPromptEndPosition) {
+    if (xPos > yPromptStartPosition && xPos < yPromptEndPosition && yPos >= xPromptStartPosition && yPos <= xPromptEndPosition) {
         short currentChar = yPos - xPromptStartPosition + ((xPos - yPromptStartPosition - 1) * maxPromptLenght) - 1;
 
         if (currentChar >= m_informationPrompt.size()) {
