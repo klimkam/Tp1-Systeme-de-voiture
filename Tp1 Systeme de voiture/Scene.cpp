@@ -34,13 +34,12 @@ Scene* Scene::HandleInput(char input)
 void Scene::DrawContent(int xPos, int yPos)
 {
     bool retFlag;
-    DrawInformationPrompt(xPos, yPos, retFlag);
+    DrawHeaderInformationPrompt(xPos, yPos, retFlag);
     if (retFlag) return;
-    
     std::cout << " ";
 }
 
-void Scene::DrawInformationPrompt(int xPos, int yPos, bool& retFlag)
+void Scene::DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag)
 {
     retFlag = true;
     int yPromptStartPosition = 1;

@@ -17,7 +17,7 @@ public:
 	virtual Scene* HandleInput(char input);
 private:
 	void DrawContent(int xPos, int yPos);
-	void DrawInformationPrompt(int xPos, int yPos, bool& retFlag);
+	void DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag);
 	void DrawVerticalBorder();
 	void DrawHorisontalBorders(int yPos, std::string name);
 };
