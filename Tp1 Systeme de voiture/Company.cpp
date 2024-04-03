@@ -36,12 +36,30 @@ Vehicle* Company::GetVehicle()
 Vehicle* Company::GetNextVehicle()
 {
 	Vehicle* returnVehicle;
+	if (m_vehicleCollectionIterator == m_vehicleCollection.end()) {
+		while (m_vehicleCollectionIterator != m_vehicleCollection.begin())
+		{
+			--m_vehicleCollectionIterator;
+		}
+		returnVehicle = GetVehicle();
+	}
 	m_vehicleCollectionIterator++;
 	returnVehicle = GetVehicle();
-	if (m_vehicleCollectionIterator == m_vehicleCollection.end()) {
+	return returnVehicle;
+}
+
+Vehicle* Company::GetPreviousVehicle()
+{
+	Vehicle* returnVehicle;
+	if (m_vehicleCollectionIterator == m_vehicleCollection.begin()) {
+		while (m_vehicleCollectionIterator != m_vehicleCollection.end())
+		{
+			++m_vehicleCollectionIterator;
+		}
 		returnVehicle = GetVehicle();
-		m_vehicleCollectionIterator = m_vehicleCollection.begin();
 	}
+	m_vehicleCollectionIterator--;
+	returnVehicle = GetVehicle();
 	return returnVehicle;
 }
 

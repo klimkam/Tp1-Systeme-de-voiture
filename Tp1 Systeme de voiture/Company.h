@@ -18,6 +18,7 @@ public:
 	void AddNewVehicle(Vehicle* vehicle);
 	Vehicle* GetVehicle();
 	Vehicle* GetNextVehicle();
+	Vehicle* GetPreviousVehicle();
 	std::string GetCompanyName();
 };
 

@@ -22,6 +22,7 @@ public:
 private:
 	void SetUpInfoPromp();
 	void DrawMainPage(int xPos, int yPos, bool& retFlag) override;
+	
 	void PrintVehicleInformation(int xPos, int startXPos, int& currentLine, int yPos, std::string& companyInformation, bool& retFlag);
 };
 

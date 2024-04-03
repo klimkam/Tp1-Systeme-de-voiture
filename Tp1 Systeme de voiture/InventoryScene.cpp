@@ -1,6 +1,7 @@
 #include "InventoryScene.h"
 #include <iostream>
-#include<string>
+#include <string>
+#include <vector>
 #include "Maps.h"
 #include "CarSystem.h"
 
@@ -33,9 +34,12 @@ Scene* InventoryScene::HandleInput(char input)
 	case'D':
 	case 'd':
 		m_company->GetNextVehicle();
-		m_thisScene->DrawScene();
-		//extern CarSystem* p_carSystem;
-		//p_carSystem->RenderProgram();
+		return this;
+		break;
+	case'A':
+	case 'a':
+		m_company->GetPreviousVehicle();
+		return this;
 		break;
 	default:
 		return NULL;
@@ -76,6 +80,21 @@ void InventoryScene::DrawMainPage(int xPos, int yPos, bool& retFlag)
 
 	if (yPos == m_sceneHeight / 2) {
 		DrawVerticalBorder();
+		return;
+	}
+	
+	std::vector<std::vector <char>> carDrawing = {
+		{' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+		{' ', ' ', ' ', ' ', ' ', ' ', '/', '/', ' ', ' ', '|', '|', '\\', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+		{'_', '_', '_', '_', '_', '/', '/', '_', '_', '_', '|', '|', '_', '\\', ' ', '\\', '_', '_', '_', ' ', ' ', ' ', ' '},
+		{')', ' ', ' ', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' '},
+		{'|', '_', '/', ' ', '\\', '_', '_', '_', '_', '_', '_', '_', '_', '/', ' ', '\\', '_', '_', '_', '|', ' ', ' ', ' '},
+		{'_', '_', '\\', '_', '/', '_', '_', '_', '_', '_', '_', '_', '_', '\\', '_', '/', '_', '_', '_', '_', ' ', ' ', ' '},
+	};
+	int yDrawStartPosition = (m_sceneHeight / 2) + 1;
+
+	if (yPos >= yDrawStartPosition && (xPos - startXPos) < carDrawing.size() && (yPos - yDrawStartPosition) < carDrawing.at(currentLine - 1).size()) {
+		std::cout << carDrawing.at(xPos-startXPos).at(yPos - yDrawStartPosition);
 		return;
 	}
 
