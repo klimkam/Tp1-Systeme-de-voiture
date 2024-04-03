@@ -36,7 +36,13 @@ void Scene::DrawContent(int xPos, int yPos)
     bool retFlag;
     DrawHeaderInformationPrompt(xPos, yPos, retFlag);
     if (retFlag) return;
+    DrawMainPage(xPos, yPos, retFlag);
+    if (retFlag) return;
     std::cout << " ";
+}
+
+void Scene::DrawMainPage(int xPos, int yPos, bool& retFlag)
+{
 }
 
 void Scene::DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag)

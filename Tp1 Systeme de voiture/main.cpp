@@ -1,8 +1,11 @@
 #include <iostream>
 #include"CarSystem.h"
 
+unsigned int Vehicle::s_nextAvailableVehicleId = 0;
+
+CarSystem* p_carSystem = new CarSystem();
+
 int main() {
-	CarSystem* p_carSystem = new CarSystem();
 
 	while (true)
 	{

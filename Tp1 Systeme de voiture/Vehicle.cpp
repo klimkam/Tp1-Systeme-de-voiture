@@ -1,5 +1,14 @@
 #include "Vehicle.h"
 
+Vehicle::Vehicle()
+{
+	m_color = E_Color::Red;
+	m_vehicleType = E_VehicleType::Car;
+	m_price = 100000;
+	m_vehicleId = s_nextAvailableVehicleId++;
+	SetID();
+}
+
 E_Color Vehicle::GetColor()
 {
 	return m_color;
@@ -9,6 +18,11 @@ void Vehicle::SetColor(E_Color color)
 {
 	if (color == E_Color::Count) return;
 	m_color = color;
+}
+
+E_VehicleType Vehicle::GetVehicleType()
+{
+	return m_vehicleType;
 }
 
 void Vehicle::SetPrice(int newPrice)
@@ -37,4 +51,15 @@ void Vehicle::SetIsSold(bool newIsSold)
 bool Vehicle::GetIsSold()
 {
 	return m_isSold;
+}
+
+int Vehicle::GetVehicleId()
+{
+	return m_vehicleId;
+}
+
+void Vehicle::SetID()
+{
+	m_vehicleId = s_nextAvailableVehicleId;
+	s_nextAvailableVehicleId++;
 }
