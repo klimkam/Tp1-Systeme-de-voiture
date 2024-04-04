@@ -5,11 +5,12 @@
 
 class MainScene : public Scene
 {
-	Scene* m_inventoryScene = new InventoryScene(this);
+	InventoryScene* m_inventoryScene;
 	Scene* m_companyScene;
 
 public:
 	MainScene();
+	MainScene(InventoryScene* inventoryScene);
 	Scene* HandleInput(char input) override;
 };
 

@@ -41,6 +41,11 @@ Scene* InventoryScene::HandleInput(char input)
 	}
 }
 
+void InventoryScene::SetPreviousScene(Scene* previousScene)
+{
+	m_previousScene = previousScene;
+}
+
 void InventoryScene::SetUpInfoPromp()
 {
 	m_sceneName = "Inventory System";

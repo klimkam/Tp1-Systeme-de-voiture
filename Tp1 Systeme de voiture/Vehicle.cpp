@@ -4,10 +4,15 @@
 Vehicle::Vehicle()
 {
 	m_color = E_Color::Red;
-	m_vehicleType = rand() % 2 == 1 ? E_VehicleType::Airplain : E_VehicleType::Car;
 	m_price = 100000;
 	m_vehicleId = s_nextAvailableVehicleId++;
-	SetID();
+}
+
+Vehicle::Vehicle(E_Color color, int price, bool isSold)
+{
+	SetColor(color);
+	SetPrice(price);
+	SetIsSold(isSold);
 }
 
 E_Color Vehicle::GetColor()

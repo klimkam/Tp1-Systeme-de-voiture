@@ -8,7 +8,7 @@ void CarSystem::RenderProgram()
 
 CarSystem::CarSystem()
 {
-	m_currentScene = m_sceneCollection.at(0);
+	m_currentScene = p_mainScene;
 }
 
 void CarSystem::HandleInput(char input)
@@ -30,5 +30,5 @@ void CarSystem::HandleInput(char input)
 
 void CarSystem::GoToMain()
 {
-	m_currentScene = m_sceneCollection.at(1);
+	m_currentScene = p_mainScene;
 }

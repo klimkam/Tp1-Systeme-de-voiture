@@ -7,10 +7,8 @@ class CarSystem
 {
 	Scene* m_currentScene;
 
-	MainScene* p_mainScene = new MainScene();
-	std::vector<Scene*> m_sceneCollection = {
-		{new Scene()}, {new MainScene()}
-	};
+	InventoryScene* p_inventoryScene = new InventoryScene();
+	MainScene* p_mainScene = new MainScene(p_inventoryScene);
 
 public:
 	CarSystem();

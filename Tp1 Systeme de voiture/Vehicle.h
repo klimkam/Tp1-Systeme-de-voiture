@@ -4,6 +4,7 @@
 
 class Vehicle
 {
+protected:
 	static unsigned int s_nextAvailableVehicleId;
 	unsigned int m_vehicleId;
 	E_Color m_color = E_Color::Count;
@@ -14,6 +15,7 @@ class Vehicle
 
 public:
 	Vehicle();
+	Vehicle(E_Color color, int price, bool isSold);
 
 	E_Color GetColor();
 	void SetColor(E_Color color);
@@ -28,6 +30,6 @@ public:
 
 	const int GetVehicleId();
 
-private:
+protected:
 	void SetID();
 };

@@ -41,7 +41,6 @@ Vehicle* Company::GetNextVehicle()
 		{
 			--m_vehicleCollectionIterator;
 		}
-		m_vehicleCollectionIterator++;
 		returnVehicle = GetVehicle();
 		return returnVehicle;
 	}
