@@ -134,7 +134,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneList.cpp" />
     <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,7 +146,6 @@
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="Maps.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneList.h" />
     <ClInclude Include="Vehicle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
