@@ -8,21 +8,21 @@
 class InventoryScene : public Scene
 {
 	Scene* m_previousScene;
-	Scene* m_thisScene;
-	std::vector<E_VehicleType> m_companyAvailableVehicles = {E_VehicleType::Car};
+	std::vector<E_VehicleType> m_companyAvailableVehicles = {E_VehicleType::Car, E_VehicleType::Airplain};
 	std::list<Vehicle*> m_vehicleCollection = { new Vehicle(), new Vehicle() , new Vehicle() , new Vehicle() , new Vehicle() , new Vehicle() };
-	Company* m_company = new Company("Toyota", m_companyAvailableVehicles, m_vehicleCollection);
+	Company* m_company = new Company("Tesla", m_companyAvailableVehicles, m_vehicleCollection);
 
 public:
 	InventoryScene();
 	InventoryScene(Scene* previousScene);
-	InventoryScene(Scene* thisScene, Scene* previousScene);
 	Scene* HandleInput(char input) override;
 
 private:
 	void SetUpInfoPromp();
 	void DrawMainPage(int xPos, int yPos, bool& retFlag) override;
+
+	const void DrawASCIIDrawing(int yPos, int xPos, int startXPos, int currentLine, bool& retFlag, std::vector<std::vector <char>> asciiDrawing);
 	
-	void PrintVehicleInformation(int xPos, int startXPos, int& currentLine, int yPos, std::string& companyInformation, bool& retFlag);
+	const void PrintVehicleInformation(int xPos, int startXPos, int& currentLine, int yPos, std::string& companyInformation, bool& retFlag);
 };
 

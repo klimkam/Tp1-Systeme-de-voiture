@@ -137,6 +137,7 @@
     <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ASCIIDrawings.h" />
     <ClInclude Include="CarSystem.h" />
     <ClInclude Include="Company.h" />
     <ClInclude Include="Enums.h" />

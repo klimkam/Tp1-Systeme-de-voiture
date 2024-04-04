@@ -18,15 +18,15 @@ public:
 	E_Color GetColor();
 	void SetColor(E_Color color);
 
-	E_VehicleType GetVehicleType();
+	const E_VehicleType GetVehicleType();
 
 	void SetPrice(int newPrice);
-	int GetPrice();
+	const int GetPrice();
 
 	void SetIsSold(bool newIsSold);
-	bool GetIsSold();
+	const bool GetIsSold();
 
-	int GetVehicleId();
+	const int GetVehicleId();
 
 private:
 	void SetID();

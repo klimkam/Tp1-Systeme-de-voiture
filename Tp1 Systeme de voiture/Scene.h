@@ -5,8 +5,8 @@
 class Scene
 {
 protected:
-	int m_sceneWidth = 25;
-	int m_sceneHeight = 100;
+	int m_sceneHeight = 25;
+	int m_sceneWidth = 100;
 
 	std::string m_sceneName = "Default Scene Name";
 	std::string m_informationPrompt = "Please write 'M' or 'm' to go to main menu.";

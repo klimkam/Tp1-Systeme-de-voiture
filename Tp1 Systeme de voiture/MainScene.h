@@ -5,7 +5,7 @@
 
 class MainScene : public Scene
 {
-	Scene* m_inventoryScene = new InventoryScene(this, m_inventoryScene);
+	Scene* m_inventoryScene = new InventoryScene(this);
 	Scene* m_companyScene;
 
 public:

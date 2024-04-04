@@ -4,6 +4,7 @@
 #include <vector>
 #include "Maps.h"
 #include "CarSystem.h"
+#include "ASCIIDrawings.h"
 
 InventoryScene::InventoryScene()
 {
@@ -13,13 +14,6 @@ InventoryScene::InventoryScene()
 InventoryScene::InventoryScene(Scene* previousScene)
 {
 	SetUpInfoPromp();
-	m_previousScene = previousScene;
-}
-
-InventoryScene::InventoryScene(Scene* thisScene, Scene* previousScene)
-{
-	SetUpInfoPromp();
-	m_thisScene = thisScene;
 	m_previousScene = previousScene;
 }
 
@@ -63,6 +57,7 @@ void InventoryScene::DrawMainPage(int xPos, int yPos, bool& retFlag)
 
 	int startXPos = 8;
 	int currentLine = 0;
+	bool retRetFlag;
 
 	std::string informationToShow[5] = {
 		{"The vehicle Company: " + m_company->GetCompanyName()},
@@ -73,35 +68,42 @@ void InventoryScene::DrawMainPage(int xPos, int yPos, bool& retFlag)
 	};
 
 	for (int i = 0; i < size(informationToShow); i++) {
-		bool retRetFlag;
 		PrintVehicleInformation(xPos, startXPos, currentLine, yPos, informationToShow[i], retRetFlag);
 		if (retRetFlag) return;
 	}
 
-	if (yPos == m_sceneHeight / 2) {
+	if (yPos == m_sceneWidth / 2) {
 		DrawVerticalBorder();
 		return;
 	}
-	
-	std::vector<std::vector <char>> carDrawing = {
-		{' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-		{' ', ' ', ' ', ' ', ' ', ' ', '/', '/', ' ', ' ', '|', '|', '\\', ' ', '\\', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-		{'_', '_', '_', '_', '_', '/', '/', '_', '_', '_', '|', '|', '_', '\\', ' ', '\\', '_', '_', '_', ' ', ' ', ' ', ' '},
-		{')', ' ', ' ', '_', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '_', ' ', ' ', ' ', ' ', '\\', ' ', ' ', ' '},
-		{'|', '_', '/', ' ', '\\', '_', '_', '_', '_', '_', '_', '_', '_', '/', ' ', '\\', '_', '_', '_', '|', ' ', ' ', ' '},
-		{'_', '_', '\\', '_', '/', '_', '_', '_', '_', '_', '_', '_', '_', '\\', '_', '/', '_', '_', '_', '_', ' ', ' ', ' '},
-	};
-	int yDrawStartPosition = (m_sceneHeight / 2) + 1;
 
-	if (yPos >= yDrawStartPosition && (xPos - startXPos) < carDrawing.size() && (yPos - yDrawStartPosition) < carDrawing.at(currentLine - 1).size()) {
-		std::cout << carDrawing.at(xPos-startXPos).at(yPos - yDrawStartPosition);
-		return;
+	if (m_company->GetVehicle()->GetVehicleType() == E_VehicleType::Car) {
+		DrawASCIIDrawing(yPos, xPos, startXPos, currentLine, retRetFlag, ASCII_CarDrawing);
+		if (retRetFlag) return;
+	}
+
+	if (m_company->GetVehicle()->GetVehicleType() == E_VehicleType::Airplain) {
+		DrawASCIIDrawing(yPos, xPos, startXPos, currentLine, retRetFlag, ASCII_AirplainDrawing);
+		if (retRetFlag) return;
 	}
 
 	retFlag = false;
 }
 
-void InventoryScene::PrintVehicleInformation(int xPos, int startXPos, int& currentLine, int yPos, std::string& companyInformation, bool& retFlag)
+const void InventoryScene::DrawASCIIDrawing(int yPos, int xPos, int startXPos, int currentLine, bool& retFlag, std::vector<std::vector <char>> asciiDrawing)
+{
+	retFlag = true;
+	std::vector<std::vector <char>> carDrawing = asciiDrawing;
+	int yDrawStartPosition = (m_sceneWidth / 2) + 1;
+
+	if (yPos >= yDrawStartPosition && (xPos - startXPos) < carDrawing.size() && (yPos - yDrawStartPosition) < carDrawing.at(currentLine - 1).size()) {
+		std::cout << carDrawing.at(xPos - startXPos).at(yPos - yDrawStartPosition);
+		return;
+	}
+	retFlag = false;
+}
+
+const void InventoryScene::PrintVehicleInformation(int xPos, int startXPos, int& currentLine, int yPos, std::string& companyInformation, bool& retFlag)
 {
 	retFlag = true;
 	if (xPos == startXPos + currentLine && yPos == 1) {

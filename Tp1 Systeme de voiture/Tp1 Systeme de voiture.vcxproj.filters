@@ -68,5 +68,8 @@
     <ClInclude Include="Company.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ASCIIDrawings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,13 +10,13 @@ std::string Scene::ReturnSceneName()
 
 void Scene::DrawScene()
 {
-    for (int xPos = 0; xPos < m_sceneWidth; xPos++) {
-        for (int yPos = 0; yPos < m_sceneHeight; yPos++) {
-            if (xPos == 0 || xPos == (m_sceneWidth - 1)) {
+    for (int xPos = 0; xPos < m_sceneHeight; xPos++) {
+        for (int yPos = 0; yPos < m_sceneWidth; yPos++) {
+            if (xPos == 0 || xPos == (m_sceneHeight - 1)) {
                 DrawHorisontalBorders(yPos, m_sceneName);
                 continue;
             }
-            if (yPos == 0 || yPos == (m_sceneHeight - 1)) {
+            if (yPos == 0 || yPos == (m_sceneWidth - 1)) {
                 DrawVerticalBorder();
                 continue;
             }
@@ -52,9 +52,9 @@ void Scene::DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag)
     int yPromptEndPosition = 1;
 
     int xPromptStartPosition = 1;
-    int xPromptEndPosition = m_sceneHeight;
+    int xPromptEndPosition = m_sceneWidth;
 
-    int maxPromptLenght = m_sceneHeight - 2;
+    int maxPromptLenght = m_sceneWidth - 2;
     int linesOfPrompt = 1 + (m_informationPrompt.size() / maxPromptLenght + (((maxPromptLenght % m_informationPrompt.size()) > 0) ? 1 : 0));
 
     yPromptEndPosition = yPromptStartPosition + linesOfPrompt;
@@ -91,8 +91,8 @@ void Scene::DrawVerticalBorder()
 
 void Scene::DrawHorisontalBorders(int yPos, std::string name)
 {
-    int startPositionOfName = (m_sceneHeight - (name.size() + 2)) / 2;
-    int endPositionOfName = (m_sceneHeight + (name.size() + 2)) / 2;
+    int startPositionOfName = (m_sceneWidth - (name.size() + 2)) / 2;
+    int endPositionOfName = (m_sceneWidth + (name.size() + 2)) / 2;
 
     //Print Scene Name in the middle of the screen
     if (yPos == startPositionOfName){

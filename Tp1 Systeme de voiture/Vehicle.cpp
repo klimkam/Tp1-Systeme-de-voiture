@@ -1,9 +1,10 @@
 #include "Vehicle.h"
+#include <stdlib.h>
 
 Vehicle::Vehicle()
 {
 	m_color = E_Color::Red;
-	m_vehicleType = E_VehicleType::Car;
+	m_vehicleType = rand() % 2 == 1 ? E_VehicleType::Airplain : E_VehicleType::Car;
 	m_price = 100000;
 	m_vehicleId = s_nextAvailableVehicleId++;
 	SetID();
@@ -20,7 +21,7 @@ void Vehicle::SetColor(E_Color color)
 	m_color = color;
 }
 
-E_VehicleType Vehicle::GetVehicleType()
+const E_VehicleType Vehicle::GetVehicleType()
 {
 	return m_vehicleType;
 }
@@ -38,7 +39,7 @@ void Vehicle::SetPrice(int newPrice)
 	m_price = newPrice;
 }
 
-int Vehicle::GetPrice()
+const int Vehicle::GetPrice()
 {
 	return m_price;
 }
@@ -48,12 +49,12 @@ void Vehicle::SetIsSold(bool newIsSold)
 	m_isSold = newIsSold;
 }
 
-bool Vehicle::GetIsSold()
+const bool Vehicle::GetIsSold()
 {
 	return m_isSold;
 }
 
-int Vehicle::GetVehicleId()
+const int Vehicle::GetVehicleId()
 {
 	return m_vehicleId;
 }
