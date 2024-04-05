@@ -29,6 +29,7 @@ std::vector<std::string> Airplane::GetInformation()
 		{"The Airplane Price: " + std::to_string(GetPrice())},
 		{"The Airplane Color: " + GetStringColor()},
 		{"The Airplane Max Capacity: " + std::to_string(m_maxCapacity)},
+		{"The Airplane Last Inspection Date: " + m_lastInspectionDate},
 		{GetIsSold() ? "The Airplane Is Sold" : "The Airplane Is Not Sold"},
 	};
 
