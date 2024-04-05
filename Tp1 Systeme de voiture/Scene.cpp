@@ -34,18 +34,18 @@ Scene* Scene::HandleInput(char input)
 void Scene::DrawContent(int xPos, int yPos)
 {
     bool retFlag;
-    DrawHeaderInformationPrompt(xPos, yPos, retFlag);
+    int lastXPos = DrawHeaderInformationPrompt(xPos, yPos, retFlag);
     if (retFlag) return;
-    DrawMainPage(xPos, yPos, retFlag);
+    DrawMainPage(xPos, yPos, lastXPos, retFlag);
     if (retFlag) return;
     std::cout << " ";
 }
 
-void Scene::DrawMainPage(int xPos, int yPos, bool& retFlag)
+void Scene::DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag)
 {
 }
 
-void Scene::DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag)
+int Scene::DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag)
 {
     retFlag = true;
     int yPromptStartPosition = 1;
@@ -69,19 +69,21 @@ void Scene::DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag)
 
         if (currentChar >= m_informationPrompt.size()) {
             std::cout << " ";
-            return;
+            return yPromptEndPosition + 1;
         }
 
         std::cout << m_informationPrompt.c_str()[currentChar];
-        return;
+        return yPromptEndPosition + 1;
     }
 
     if (xPos == yPromptStartPosition || xPos == yPromptEndPosition) {
         DrawHorisontalBorders(yPos, "Info");
-        return;
+        return yPromptEndPosition + 1;
     }
-    if (xPos > yPromptStartPosition && xPos < yPromptEndPosition && yPos > xPromptStartPosition && yPos < xPromptEndPosition + 2) return;
+    if (xPos > yPromptStartPosition && xPos < yPromptEndPosition && yPos > xPromptStartPosition && yPos < xPromptEndPosition + 2) return yPromptEndPosition + 1;
     retFlag = false;
+
+    return yPromptEndPosition + 1;
 }
 
 void Scene::DrawVerticalBorder()

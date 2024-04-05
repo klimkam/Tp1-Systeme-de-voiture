@@ -56,11 +56,10 @@ void InventoryScene::SetUpInfoPromp()
 	m_informationPrompt += " Press 'C' to create a new vehicle.";
 }
 
-void InventoryScene::DrawMainPage(int xPos, int yPos, bool& retFlag)
+void InventoryScene::DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag)
 {
 	retFlag = true;
 
-	int startXPos = 8;
 	int currentLine = 0;
 	bool retRetFlag;
 
@@ -72,8 +71,10 @@ void InventoryScene::DrawMainPage(int xPos, int yPos, bool& retFlag)
 		{m_company->GetVehicle()->GetIsSold() ? "The Vehicle Is Sold" : "The Vehicle Is Not Sold"},
 	};
 
+	int middleXPositionForInformation = (m_sceneHeight - startXPos - size(informationToShow)) / 2 + startXPos - 1;
+
 	for (int i = 0; i < size(informationToShow); i++) {
-		PrintVehicleInformation(xPos, startXPos, currentLine, yPos, informationToShow[i], retRetFlag);
+		PrintVehicleInformation(xPos, middleXPositionForInformation, currentLine, yPos, informationToShow[i], retRetFlag);
 		if (retRetFlag) return;
 	}
 
@@ -83,12 +84,14 @@ void InventoryScene::DrawMainPage(int xPos, int yPos, bool& retFlag)
 	}
 
 	if (m_company->GetVehicle()->GetVehicleType() == E_VehicleType::Car) {
-		DrawASCIIDrawing(yPos, xPos, startXPos, currentLine, retRetFlag, ASCII_CarDrawing);
+		int middleXPositionForDrawing = (m_sceneHeight - startXPos - size(ASCII_CarDrawing)) / 2 + startXPos - 1;
+		DrawASCIIDrawing(yPos, xPos, middleXPositionForDrawing, currentLine, retRetFlag, ASCII_CarDrawing);
 		if (retRetFlag) return;
 	}
 
 	if (m_company->GetVehicle()->GetVehicleType() == E_VehicleType::Airplain) {
-		DrawASCIIDrawing(yPos, xPos, startXPos, currentLine, retRetFlag, ASCII_AirplainDrawing);
+		int middleXPositionForDrawing = (m_sceneHeight - startXPos - size(ASCII_AirplainDrawing)) / 2 + startXPos - 1;
+		DrawASCIIDrawing(yPos, xPos, middleXPositionForDrawing, currentLine, retRetFlag, ASCII_AirplainDrawing);
 		if (retRetFlag) return;
 	}
 
@@ -99,7 +102,7 @@ const void InventoryScene::DrawASCIIDrawing(int yPos, int xPos, int startXPos, i
 {
 	retFlag = true;
 	std::vector<std::vector <char>> carDrawing = asciiDrawing;
-	int yDrawStartPosition = (m_sceneWidth / 2) + 1;
+	int yDrawStartPosition = ((m_sceneWidth) * 3 / 4) + 1 - (carDrawing.at(0).size() / 2);
 
 	if (yPos >= yDrawStartPosition && (xPos - startXPos) < carDrawing.size() && (yPos - yDrawStartPosition) < carDrawing.at(currentLine - 1).size()) {
 		std::cout << carDrawing.at(xPos - startXPos).at(yPos - yDrawStartPosition);

@@ -17,8 +17,8 @@ public:
 	virtual Scene* HandleInput(char input);
 protected:
 	void DrawContent(int xPos, int yPos);
-	virtual void DrawMainPage(int xPos, int yPos, bool& retFlag);
-	void DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag);
+	virtual void DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag);
+	int DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag);
 	void DrawVerticalBorder();
 	void DrawHorisontalBorders(int yPos, std::string name);
 };

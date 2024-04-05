@@ -21,7 +21,7 @@ public:
 
 private:
 	void SetUpInfoPromp();
-	void DrawMainPage(int xPos, int yPos, bool& retFlag) override;
+	void DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag) override;
 
 	const void DrawASCIIDrawing(int yPos, int xPos, int startXPos, int currentLine, bool& retFlag, std::vector<std::vector <char>> asciiDrawing);
 	
