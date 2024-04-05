@@ -54,6 +54,12 @@
     <ClCompile Include="Vehicle.cpp">
       <Filter>Source Files\Vehicles</Filter>
     </ClCompile>
+    <ClCompile Include="Airplane.cpp">
+      <Filter>Source Files\Vehicles</Filter>
+    </ClCompile>
+    <ClCompile Include="CompanyManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarSystem.h">
@@ -85,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="ASCIIDrawings.h">
       <Filter>Header Files\DataStructs</Filter>
+    </ClInclude>
+    <ClInclude Include="Airplane.h">
+      <Filter>Header Files\Vehicles</Filter>
+    </ClInclude>
+    <ClInclude Include="CompanyManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

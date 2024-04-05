@@ -3,15 +3,16 @@
 #include "Company.h"
 #include "Enums.h"
 #include "Car.h"
+#include "CompanyManager.h"
 
 #include <vector>
 
 class InventoryScene : public Scene
 {
 	Scene* m_previousScene;
-	std::vector<E_VehicleType> m_companyAvailableVehicles = {E_VehicleType::Car, E_VehicleType::Airplain};
-	std::list<Vehicle*> m_vehicleCollection = { new Car(), new Car() , new Car() , new Car() , new Car() , new Car() };
-	Company* m_company = new Company("Tesla", m_companyAvailableVehicles, m_vehicleCollection);
+	CompanyManager m_company_manager = CompanyManager();
+
+	Company* m_company = m_company_manager.GetCompany("Tesla");
 
 public:
 	InventoryScene();

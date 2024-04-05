@@ -8,7 +8,7 @@ Vehicle::Vehicle()
 	m_vehicleId = s_nextAvailableVehicleId++;
 }
 
-Vehicle::Vehicle(E_Color color, int price, bool isSold)
+Vehicle::Vehicle(E_Color color, long price, bool isSold)
 {
 	SetColor(color);
 	SetPrice(price);
@@ -31,7 +31,7 @@ const E_VehicleType Vehicle::GetVehicleType()
 	return m_vehicleType;
 }
 
-void Vehicle::SetPrice(int newPrice)
+void Vehicle::SetPrice(long newPrice)
 {
 	if (newPrice < 0) { 
 		m_price = 0; 
@@ -44,7 +44,7 @@ void Vehicle::SetPrice(int newPrice)
 	m_price = newPrice;
 }
 
-const int Vehicle::GetPrice()
+const long Vehicle::GetPrice()
 {
 	return m_price;
 }

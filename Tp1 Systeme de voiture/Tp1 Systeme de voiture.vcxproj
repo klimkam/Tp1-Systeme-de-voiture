@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Airplane.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="CarSystem.cpp" />
     <ClCompile Include="Company.cpp" />
+    <ClCompile Include="CompanyManager.cpp" />
     <ClCompile Include="InventoryScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScene.cpp" />
@@ -137,10 +139,12 @@
     <ClCompile Include="Vehicle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Airplane.h" />
     <ClInclude Include="ASCIIDrawings.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="CarSystem.h" />
     <ClInclude Include="Company.h" />
+    <ClInclude Include="CompanyManager.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="InventoryScene.h" />
     <ClInclude Include="MainScene.h" />

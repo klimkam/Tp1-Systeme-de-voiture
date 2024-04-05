@@ -5,6 +5,7 @@
 #include "Maps.h"
 #include "CarSystem.h"
 #include "ASCIIDrawings.h"
+#include "Vehicle.h"
 
 InventoryScene::InventoryScene()
 {
@@ -98,19 +99,6 @@ void InventoryScene::DrawMainPage(int xPos, int yPos, int startXPos, bool& retFl
 	retFlag = false;
 }
 
-const void InventoryScene::DrawASCIIDrawing(int yPos, int xPos, int startXPos, int currentLine, bool& retFlag, std::vector<std::vector <char>> asciiDrawing)
-{
-	retFlag = true;
-	std::vector<std::vector <char>> carDrawing = asciiDrawing;
-	int yDrawStartPosition = ((m_sceneWidth) * 3 / 4) + 1 - (carDrawing.at(0).size() / 2);
-
-	if (yPos >= yDrawStartPosition && (xPos - startXPos) < carDrawing.size() && (yPos - yDrawStartPosition) < carDrawing.at(currentLine - 1).size()) {
-		std::cout << carDrawing.at(xPos - startXPos).at(yPos - yDrawStartPosition);
-		return;
-	}
-	retFlag = false;
-}
-
 const void InventoryScene::PrintVehicleInformation(int xPos, int startXPos, int& currentLine, int yPos, std::string& companyInformation, bool& retFlag)
 {
 	retFlag = true;
@@ -124,3 +112,17 @@ const void InventoryScene::PrintVehicleInformation(int xPos, int startXPos, int&
 	++currentLine;
 	retFlag = false;
 }
+
+const void InventoryScene::DrawASCIIDrawing(int yPos, int xPos, int startXPos, int currentLine, bool& retFlag, std::vector<std::vector <char>> asciiDrawing)
+{
+	retFlag = true;
+	std::vector<std::vector <char>> carDrawing = asciiDrawing;
+	int yDrawStartPosition = ((m_sceneWidth) * 3 / 4) + 1 - (carDrawing.at(0).size() / 2);
+
+	if (yPos >= yDrawStartPosition && (xPos - startXPos) < carDrawing.size() && (yPos - yDrawStartPosition) < carDrawing.at(currentLine - 1).size()) {
+		std::cout << carDrawing.at(xPos - startXPos).at(yPos - yDrawStartPosition);
+		return;
+	}
+	retFlag = false;
+}
+
