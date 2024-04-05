@@ -16,6 +16,9 @@ CompanyManager::CompanyManager()
 
 Company* CompanyManager::GetCompany(std::string companyName)
 {
+	if (M_Companies.find(companyName) == M_Companies.end()) {
+		return nullptr;
+	}
     return M_Companies[companyName];
 }
 

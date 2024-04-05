@@ -85,7 +85,10 @@ int Scene::DrawHeaderInformationPrompt(int xPos, int yPos, bool& retFlag)
         DrawHorisontalBorders(yPos, "Info");
         return yPromptEndPosition + 1;
     }
-    if (xPos > yPromptStartPosition && xPos < yPromptEndPosition && yPos > xPromptStartPosition && yPos < xPromptEndPosition + 2) return yPromptEndPosition + 1;
+    if (xPos > yPromptStartPosition 
+        && xPos < yPromptEndPosition 
+        && yPos > xPromptStartPosition
+        && yPos < xPromptEndPosition + 2) return yPromptEndPosition + 1;
     retFlag = false;
 
     return yPromptEndPosition + 1;
@@ -101,13 +104,11 @@ void Scene::DrawHorisontalBorders(int yPos, std::string name)
     int startPositionOfName = (m_sceneWidth - (name.size() + 2)) / 2;
     int endPositionOfName = (m_sceneWidth + (name.size() + 2)) / 2;
 
-    //Print Scene Name in the middle of the screen
     if (yPos == startPositionOfName){
         std::cout << "[" << name << "]";
         return;
     }
 
-    //Skip chars on the pposition of scene name
     if (yPos >= startPositionOfName && (yPos < endPositionOfName)) return;
 
     std::cout << "=";
