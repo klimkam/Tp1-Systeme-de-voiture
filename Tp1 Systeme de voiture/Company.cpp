@@ -57,6 +57,11 @@ std::vector<std::string> Company::GetInformation()
 	return tempInfo;
 }
 
+void Company::RemoveVehicle()
+{
+	m_vehicleCollection.erase(m_vehicleCollectionIterator++);
+}
+
 Vehicle* Company::GetPreviousVehicle()
 {
 	Vehicle* returnVehicle;

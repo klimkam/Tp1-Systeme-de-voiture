@@ -41,8 +41,13 @@ Scene* InventoryScene::HandleInput(char input)
 		m_company->GetPreviousVehicle();
 		return this;
 		break;
+	case'X':
+	case'x':
+		m_company->RemoveVehicle();
+		return this;
+		break;
 	default:
-		return NULL;
+		return this;
 		break;
 	}
 }

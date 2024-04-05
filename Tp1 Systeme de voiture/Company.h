@@ -21,5 +21,7 @@ public:
 	Vehicle* GetPreviousVehicle();
 	std::string GetCompanyName();
 	std::vector<std::string> GetInformation();
+
+	void RemoveVehicle();
 };
 
