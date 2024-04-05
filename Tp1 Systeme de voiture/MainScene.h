@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "InventoryScene.h"
+#include "CompanySelectionScene.h"
 #include "Scene.h"
 
 class MainScene : public Scene
@@ -9,8 +10,7 @@ class MainScene : public Scene
 	Scene* m_companyScene;
 
 public:
-	MainScene();
-	MainScene(InventoryScene* inventoryScene);
+	MainScene(InventoryScene* inventoryScene, CompanySelectionScene* companySelectionScene);
 	Scene* HandleInput(char input) override;
 };
 

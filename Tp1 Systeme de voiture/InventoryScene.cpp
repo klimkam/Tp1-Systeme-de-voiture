@@ -18,6 +18,11 @@ InventoryScene::InventoryScene(Scene* previousScene)
 	m_previousScene = previousScene;
 }
 
+InventoryScene::InventoryScene(Company* company)
+{
+	m_company = company;
+}
+
 Scene* InventoryScene::HandleInput(char input)
 {
 	switch (input)

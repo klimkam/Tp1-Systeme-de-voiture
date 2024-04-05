@@ -12,11 +12,12 @@ class InventoryScene : public Scene
 	Scene* m_previousScene;
 	CompanyManager m_company_manager = CompanyManager();
 
-	Company* m_company = m_company_manager.GetCompany("Tesla");
+	Company* m_company;
 
 public:
 	InventoryScene();
 	InventoryScene(Scene* previousScene);
+	InventoryScene(Company* company);
 	Scene* HandleInput(char input) override;
 	void SetPreviousScene(Scene* previousScene);
 
