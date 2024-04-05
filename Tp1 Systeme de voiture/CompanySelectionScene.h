@@ -15,5 +15,9 @@ public:
 
 	Scene* HandleInput(char input) override;
 	Scene* HandleStringInput(std::string input) override;
+
+private:
+	void DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag) override;
+	const void PrintVehicleInformation(int xPos, int startXPos, int& currentLine, int yPos, std::string& companyInformation, bool& retFlag);
 };
 
