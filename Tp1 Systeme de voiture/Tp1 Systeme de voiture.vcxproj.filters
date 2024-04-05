@@ -28,15 +28,18 @@
     <Filter Include="Source Files\Vehicles">
       <UniqueIdentifier>{a4b9bccf-de36-48d1-af07-f904832925b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Company">
+      <UniqueIdentifier>{ae9efc90-acc5-452e-9375-daf6a27debd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Company">
+      <UniqueIdentifier>{4bdd1f0f-113c-4329-9727-d9e1c4aa4a98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CarSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Company.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InventoryScene.cpp">
@@ -57,18 +60,18 @@
     <ClCompile Include="Airplane.cpp">
       <Filter>Source Files\Vehicles</Filter>
     </ClCompile>
-    <ClCompile Include="CompanyManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CompanySelectionScene.cpp">
       <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="CompanyManager.cpp">
+      <Filter>Source Files\Company</Filter>
+    </ClCompile>
+    <ClCompile Include="Company.cpp">
+      <Filter>Source Files\Company</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Company.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MainScene.h">
@@ -98,11 +101,14 @@
     <ClInclude Include="Airplane.h">
       <Filter>Header Files\Vehicles</Filter>
     </ClInclude>
-    <ClInclude Include="CompanyManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CompanySelectionScene.h">
       <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Company.h">
+      <Filter>Header Files\Company</Filter>
+    </ClInclude>
+    <ClInclude Include="CompanyManager.h">
+      <Filter>Header Files\Company</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
