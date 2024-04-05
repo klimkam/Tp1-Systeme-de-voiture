@@ -8,3 +8,29 @@ Airplane::Airplane()
 	m_vehicleId = s_nextAvailableVehicleId++;
 	SetID();
 }
+
+void Airplane::SetMaxCapacity(int amount)
+{
+	if (amount < 1) {
+		m_maxCapacity = 1;
+		return;
+	}
+	if (amount > 250) {
+		m_maxCapacity = 250;
+		return;
+	}
+	m_maxCapacity = amount;
+}
+
+std::vector<std::string> Airplane::GetInformation()
+{
+	std::vector<std::string> tempInfo = {
+		{"The Airplane ID: " + std::to_string(GetVehicleId())},
+		{"The Airplane Price: " + std::to_string(GetPrice())},
+		{"The Airplane Color: " + GetStringColor()},
+		{"The Airplane Max Capacity: " + std::to_string(m_maxCapacity)},
+		{GetIsSold() ? "The Airplane Is Sold" : "The Airplane Is Not Sold"},
+	};
+
+	return tempInfo;
+}

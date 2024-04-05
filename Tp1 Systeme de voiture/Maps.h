@@ -3,7 +3,7 @@
 #include<string>
 #include "Enums.h"
 
-std::map <E_Color, std::string> M_ColorToNames = {
+class std::map <E_Color, std::string> M_ColorToNames = {
 	{E_Color::Red, "Red"},
 	{E_Color::Blue, "Blue"},
 	{E_Color::Green, "Green"},
@@ -13,7 +13,7 @@ std::map <E_Color, std::string> M_ColorToNames = {
 	{E_Color::Count, "Count"},
 };
 
-std::map <std::string, E_Color> M_NamesToColors = {
+class std::map <std::string, E_Color> M_NamesToColors = {
 	{"Red" ,E_Color::Red},
 	{"Blue" ,E_Color::Blue},
 	{"Green" ,E_Color::Green},
@@ -23,7 +23,7 @@ std::map <std::string, E_Color> M_NamesToColors = {
 	{"Count" ,E_Color::Count},
 };
 
-std::map <E_VehicleType, std::string> M_VehicleTypeToNames = {
+class std::map <E_VehicleType, std::string> M_VehicleTypeToNames = {
 	{E_VehicleType::Car, "Car"},
 	{E_VehicleType::Airplain, "Airplain"},
 };

@@ -20,5 +20,6 @@ public:
 	Vehicle* GetNextVehicle();
 	Vehicle* GetPreviousVehicle();
 	std::string GetCompanyName();
+	std::vector<std::string> GetInformation();
 };
 

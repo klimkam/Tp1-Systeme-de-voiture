@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Maps.h"
 #include "CarSystem.h"
 #include "ASCIIDrawings.h"
 #include "Vehicle.h"
@@ -75,18 +74,12 @@ void InventoryScene::DrawMainPage(int xPos, int yPos, int startXPos, bool& retFl
 	int currentLine = 0;
 	bool retRetFlag;
 
-	std::string informationToShow[5] = {
-		{"The vehicle Company: " + m_company->GetCompanyName()},
-		{"The vehicle ID: " + std::to_string(m_company->GetVehicle()->GetVehicleId())},
-		{"The vehicle Color: " + M_ColorToNames[m_company->GetVehicle()->GetColor()]},
-		{"The vehicle Price: " + std::to_string(m_company->GetVehicle()->GetPrice())},
-		{m_company->GetVehicle()->GetIsSold() ? "The Vehicle Is Sold" : "The Vehicle Is Not Sold"},
-	};
+	std::vector<std::string> informationToShow = m_company->GetInformation();
 
-	int middleXPositionForInformation = (m_sceneHeight - startXPos - size(informationToShow)) / 2 + startXPos - 1;
+	int middleXPositionForInformation = (m_sceneHeight - startXPos - informationToShow.size()) / 2 + startXPos - 1;
 
 	for (int i = 0; i < size(informationToShow); i++) {
-		PrintVehicleInformation(xPos, middleXPositionForInformation, currentLine, yPos, informationToShow[i], retRetFlag);
+		PrintVehicleInformation(xPos, middleXPositionForInformation, currentLine, yPos, informationToShow.at(i), retRetFlag);
 		if (retRetFlag) return;
 	}
 

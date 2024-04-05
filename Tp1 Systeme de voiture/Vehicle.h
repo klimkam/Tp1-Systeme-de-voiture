@@ -1,5 +1,7 @@
 #pragma once
 #include "Enums.h"
+#include <vector>
+#include <string>
 
 
 class Vehicle
@@ -20,6 +22,7 @@ public:
 	Vehicle(E_Color color, long price, bool isSold);
 
 	E_Color GetColor();
+	std::string GetStringColor();
 	void SetColor(E_Color color);
 
 	const E_VehicleType GetVehicleType();
@@ -31,6 +34,8 @@ public:
 	const bool GetIsSold();
 
 	const int GetVehicleId();
+
+	virtual std::vector<std::string> GetInformation();
 
 protected:
 	void SetID();

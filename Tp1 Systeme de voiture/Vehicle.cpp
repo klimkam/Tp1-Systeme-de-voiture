@@ -1,4 +1,5 @@
 #include "Vehicle.h"
+#include "Maps.h"
 #include <stdlib.h>
 
 Vehicle::Vehicle()
@@ -18,6 +19,10 @@ Vehicle::Vehicle(E_Color color, long price, bool isSold)
 E_Color Vehicle::GetColor()
 {
 	return m_color;
+}
+
+std::string Vehicle::GetStringColor() {
+	return M_ColorToNames[m_color];
 }
 
 void Vehicle::SetColor(E_Color color)
@@ -68,4 +73,17 @@ void Vehicle::SetID()
 {
 	m_vehicleId = s_nextAvailableVehicleId;
 	s_nextAvailableVehicleId++;
+}
+
+std::vector<std::string> Vehicle::GetInformation() {
+	std::string currentVehicleType = M_VehicleTypeToNames[m_vehicleType];
+
+	std::vector<std::string> tempInfo = {
+	{"The " + currentVehicleType + " ID: " + std::to_string(GetVehicleId())},
+	{"The " + currentVehicleType + " Price: " + std::to_string(GetPrice())},
+	{"The " + currentVehicleType + " Color: " + GetStringColor()},
+	{GetIsSold() ? "The " + currentVehicleType + " Is Sold" : "The " + currentVehicleType + " Is Not Sold"},
+	};
+
+	return tempInfo;
 }

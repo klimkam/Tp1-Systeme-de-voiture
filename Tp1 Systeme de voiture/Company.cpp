@@ -49,6 +49,14 @@ Vehicle* Company::GetNextVehicle()
 	return returnVehicle;
 }
 
+std::vector<std::string> Company::GetInformation()
+{
+	std::vector<std::string> tempInfo = GetVehicle()->GetInformation();
+	tempInfo.push_back("The Vehicle Company: " + m_companyName);
+
+	return tempInfo;
+}
+
 Vehicle* Company::GetPreviousVehicle()
 {
 	Vehicle* returnVehicle;
