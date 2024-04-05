@@ -11,10 +11,14 @@ int main() {
 	{
 		p_carSystem->RenderProgram();
 
-		char input;
+		std::string input;
 		std::cin >> input;
 
-		p_carSystem->HandleInput(input);
+		if (input.size() == 1) {
+			p_carSystem->HandleInput(input[0]);
+			continue;
+		}
+		p_carSystem->HandleStringInput(input);
 	}
 
 	return 0;

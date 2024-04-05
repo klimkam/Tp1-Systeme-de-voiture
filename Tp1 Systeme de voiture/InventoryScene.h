@@ -19,7 +19,9 @@ public:
 	InventoryScene(Scene* previousScene);
 	InventoryScene(Company* company);
 	Scene* HandleInput(char input) override;
+
 	void SetPreviousScene(Scene* previousScene);
+	void SetCompany(Company* company);
 
 private:
 	void SetUpInfoPromp();

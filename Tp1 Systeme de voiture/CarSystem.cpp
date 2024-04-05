@@ -9,6 +9,7 @@ void CarSystem::RenderProgram()
 CarSystem::CarSystem()
 {
 	m_currentScene = p_mainScene;
+	p_companySelectionScene->SetInventoryScene(p_inventoryScene);
 }
 
 void CarSystem::HandleInput(char input)
@@ -25,6 +26,13 @@ void CarSystem::HandleInput(char input)
 			m_currentScene = tempSceneRef;
 		}
 		break;
+	}
+}
+
+void CarSystem::HandleStringInput(std::string input) {
+	Scene* tempSceneRef = m_currentScene->HandleStringInput(input);
+	if (tempSceneRef) {
+		m_currentScene = tempSceneRef;
 	}
 }
 

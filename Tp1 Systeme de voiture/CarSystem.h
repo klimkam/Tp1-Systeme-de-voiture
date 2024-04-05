@@ -3,6 +3,7 @@
 #include "MainScene.h"
 #include "CompanySelectionScene.h"
 #include <vector>
+#include <string>
 
 class CarSystem
 {
@@ -11,6 +12,7 @@ class CarSystem
 
 	InventoryScene* p_inventoryScene = new InventoryScene(m_company_manager->GetCompany("Tesla"));
 	CompanySelectionScene* p_companySelectionScene = new CompanySelectionScene(m_company_manager);
+	
 	MainScene* p_mainScene = new MainScene(p_inventoryScene, p_companySelectionScene);
 
 public:
@@ -19,6 +21,7 @@ public:
 public:
 	void RenderProgram();
 	void HandleInput(char input);
+	void HandleStringInput(std::string input);
 	void GoToMain();
 };
 

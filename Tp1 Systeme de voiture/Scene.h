@@ -15,6 +15,8 @@ public:
 	std::string ReturnSceneName();
 	void DrawScene();
 	virtual Scene* HandleInput(char input);
+	virtual Scene* HandleStringInput(std::string input);
+
 protected:
 	void DrawContent(int xPos, int yPos);
 	virtual void DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag);

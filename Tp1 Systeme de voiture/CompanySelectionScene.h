@@ -12,5 +12,8 @@ class CompanySelectionScene : public Scene
 public:
 	CompanySelectionScene(CompanyManager* companyManager);
 	void SetInventoryScene(InventoryScene* inventoryScene);
+
+	Scene* HandleInput(char input) override;
+	Scene* HandleStringInput(std::string input) override;
 };
 

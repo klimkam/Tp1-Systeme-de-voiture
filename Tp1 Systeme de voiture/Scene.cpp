@@ -31,6 +31,11 @@ Scene* Scene::HandleInput(char input)
     return NULL;
 }
 
+Scene* Scene::HandleStringInput(std::string input)
+{
+    return nullptr;
+}
+
 void Scene::DrawContent(int xPos, int yPos)
 {
     bool retFlag;

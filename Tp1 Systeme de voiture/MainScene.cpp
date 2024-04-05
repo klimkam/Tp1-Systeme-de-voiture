@@ -6,6 +6,7 @@ MainScene::MainScene(InventoryScene* inventoryScene, CompanySelectionScene* comp
 	m_inventoryScene = inventoryScene;
 	m_inventoryScene->SetPreviousScene(this);
 	m_companyScene = companySelectionScene;
+	
 }
 
 Scene* MainScene::HandleInput(char input)

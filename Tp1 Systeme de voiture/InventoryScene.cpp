@@ -20,6 +20,7 @@ InventoryScene::InventoryScene(Scene* previousScene)
 
 InventoryScene::InventoryScene(Company* company)
 {
+	SetUpInfoPromp();
 	m_company = company;
 }
 
@@ -50,6 +51,11 @@ Scene* InventoryScene::HandleInput(char input)
 void InventoryScene::SetPreviousScene(Scene* previousScene)
 {
 	m_previousScene = previousScene;
+}
+
+void InventoryScene::SetCompany(Company* company)
+{
+	m_company = company;
 }
 
 void InventoryScene::SetUpInfoPromp()
