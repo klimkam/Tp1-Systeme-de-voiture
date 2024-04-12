@@ -33,7 +33,7 @@ Scene* VehicleEditScene::HandleStringInput(std::string input)
 void VehicleEditScene::DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag)
 {
 	int currentLine = 0;
-	bool retRetFlag;
+	bool retRetFlag = false;
 
 	std::vector<std::string> informationToShow = m_currentVehicle->GetInformation();
 
@@ -54,9 +54,6 @@ const void VehicleEditScene::PrintVehicleInformation(int xPos, int startXPos, in
 		std::cout << vehicleInformation;
 		return;
 	}
-	//that if has an error in it that is hard to catch.
-	//It doesn't remove the pixel on the place of vehicle information
-	//I have no idea why, it's litterally the same methode I use from CompanySelectionScene.h
 	if (xPos == startXPos + currentLine && yPos < 1+ vehicleInformation.size()) {
 		return;
 	}
