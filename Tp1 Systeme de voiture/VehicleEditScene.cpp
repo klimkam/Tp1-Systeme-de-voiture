@@ -33,6 +33,7 @@ Scene* VehicleEditScene::HandleStringInput(std::string input)
 void VehicleEditScene::DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag)
 {
 	int currentLine = 0;
+	//That's a default VS bool, but I use double ret to diverse it
 	bool retRetFlag;
 
 	std::vector<std::string> informationToShow = m_currentVehicle->GetInformation();
