@@ -37,13 +37,13 @@ void CompanySelectionScene::DrawMainPage(int xPos, int yPos, int startXPos, bool
 	retFlag = true;
 
 	int currentLine = 0;
-	bool retRetFlag;
 
 	std::vector<std::string> informationToShow = m_companyManager->GetAllCompanyNames();
 
 	int middleXPositionForInformation = (m_sceneHeight - startXPos - informationToShow.size()) / 2 + startXPos - 1;
-
-	for (int i = 0; i < size(informationToShow); i++) {
+	bool retRetFlag;
+	
+	for (int i = 0; i < informationToShow.size(); i++) {
 		PrintVehicleInformation(xPos, middleXPositionForInformation, currentLine, yPos, informationToShow.at(i), retRetFlag);
 		if (retRetFlag) return;
 	}

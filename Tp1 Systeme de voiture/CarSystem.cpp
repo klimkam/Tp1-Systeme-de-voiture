@@ -9,7 +9,8 @@ void CarSystem::RenderProgram()
 CarSystem::CarSystem()
 {
 	m_currentScene = p_mainScene;
-	p_companySelectionScene->SetInventoryScene(p_inventoryScene);
+	m_inventoryScene->SetVehicleEditScene(m_vehicleEditScene);
+	m_companySelectionScene->SetInventoryScene(m_inventoryScene);
 }
 
 void CarSystem::HandleInput(char input)

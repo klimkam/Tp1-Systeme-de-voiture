@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "CarSystem.h"
+#include "VehicleEditScene.h"
 #include "ASCIIDrawings.h"
 #include "Vehicle.h"
 
@@ -46,6 +47,11 @@ Scene* InventoryScene::HandleInput(char input)
 		m_company->RemoveVehicle();
 		return this;
 		break;
+	case'Z':
+	case'z':
+		m_vehicleEditScene->SetLastScene(this);
+		m_vehicleEditScene->SetCurrentVahicle(m_company->GetVehicle());
+		return m_vehicleEditScene;
 	default:
 		return this;
 		break;
@@ -55,6 +61,10 @@ Scene* InventoryScene::HandleInput(char input)
 void InventoryScene::SetPreviousScene(Scene* previousScene)
 {
 	m_previousScene = previousScene;
+}
+
+void InventoryScene::SetVehicleEditScene(VehicleEditScene* vehicleEditScene) {
+	m_vehicleEditScene = vehicleEditScene;
 }
 
 void InventoryScene::SetCompany(Company* company)
@@ -125,11 +135,11 @@ const void InventoryScene::PrintVehicleInformation(int xPos, int startXPos, int&
 const void InventoryScene::DrawASCIIDrawing(int yPos, int xPos, int startXPos, int currentLine, bool& retFlag, std::vector<std::vector <char>> asciiDrawing)
 {
 	retFlag = true;
-	std::vector<std::vector <char>> carDrawing = asciiDrawing;
-	int yDrawStartPosition = ((m_sceneWidth) * 3 / 4) + 1 - (carDrawing.at(0).size() / 2);
+	std::vector<std::vector <char>> vehicleDrawing = asciiDrawing;
+	int yDrawStartPosition = ((m_sceneWidth) * 3 / 4) + 1 - (vehicleDrawing.at(0).size() / 2);
 
-	if (yPos >= yDrawStartPosition && (xPos - startXPos) < carDrawing.size() && (yPos - yDrawStartPosition) < carDrawing.at(currentLine - 1).size()) {
-		std::cout << carDrawing.at(xPos - startXPos).at(yPos - yDrawStartPosition);
+	if (yPos >= yDrawStartPosition && (xPos - startXPos) < vehicleDrawing.size() && (yPos - yDrawStartPosition) < vehicleDrawing.at(currentLine - 1).size()) {
+		std::cout << vehicleDrawing.at(xPos - startXPos).at(yPos - yDrawStartPosition);
 		return;
 	}
 	retFlag = false;

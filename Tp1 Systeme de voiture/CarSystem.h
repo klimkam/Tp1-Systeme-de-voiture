@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "MainScene.h"
 #include "CompanySelectionScene.h"
+#include "VehicleEditScene.h"
 #include <vector>
 #include <string>
 
@@ -10,10 +11,11 @@ class CarSystem
 	Scene* m_currentScene;
 	CompanyManager* m_company_manager = new CompanyManager();
 
-	InventoryScene* p_inventoryScene = new InventoryScene(m_company_manager->GetCompany("Tesla"));
-	CompanySelectionScene* p_companySelectionScene = new CompanySelectionScene(m_company_manager);
+	InventoryScene* m_inventoryScene = new InventoryScene(m_company_manager->GetCompany("Tesla"));
+	CompanySelectionScene* m_companySelectionScene = new CompanySelectionScene(m_company_manager);
+	VehicleEditScene* m_vehicleEditScene = new VehicleEditScene();
 	
-	MainScene* p_mainScene = new MainScene(p_inventoryScene, p_companySelectionScene);
+	MainScene* p_mainScene = new MainScene(m_inventoryScene, m_companySelectionScene);
 
 public:
 	CarSystem();

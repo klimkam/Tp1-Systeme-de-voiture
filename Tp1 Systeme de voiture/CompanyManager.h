@@ -20,8 +20,6 @@ class CompanyManager
 
 	std::list<Vehicle*> m_Tesla_vehicleCollection = { new Car(), new Airplane() , new Car() , new Airplane() , new Car() , new Airplane() };
 
-
-
 public:
 	CompanyManager();
 	Company* GetCompany(std::string companyName);
