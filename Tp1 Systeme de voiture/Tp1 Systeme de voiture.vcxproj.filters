@@ -69,9 +69,6 @@
     <ClCompile Include="Company.cpp">
       <Filter>Source Files\Company</Filter>
     </ClCompile>
-    <ClCompile Include="VehicleEditScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarSystem.h">
@@ -112,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="CompanyManager.h">
       <Filter>Header Files\Company</Filter>
-    </ClInclude>
-    <ClInclude Include="VehicleEditScene.h">
-      <Filter>Header Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

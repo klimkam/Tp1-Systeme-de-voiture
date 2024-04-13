@@ -1,6 +1,5 @@
 #pragma once
 #include "Scene.h"
-#include "VehicleEditScene.h"
 #include "Company.h"
 #include "Enums.h"
 #include "Car.h"
@@ -11,9 +10,8 @@
 class InventoryScene : public Scene
 {
 	Scene* m_previousScene;
-	VehicleEditScene* m_vehicleEditScene;
-	
 	CompanyManager m_company_manager = CompanyManager();
+
 	Company* m_company;
 
 public:
@@ -23,7 +21,6 @@ public:
 	Scene* HandleInput(char input) override;
 
 	void SetPreviousScene(Scene* previousScene);
-	void SetVehicleEditScene(VehicleEditScene* vehicleEditScene);
 	void SetCompany(Company* company);
 
 private:
