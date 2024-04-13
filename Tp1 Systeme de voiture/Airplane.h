@@ -9,6 +9,7 @@ class Airplane : public Vehicle
 public:
 	Airplane();
 	void SetMaxCapacity(int amount);
+	void SetLastInspectionDate(std::string newInspectionDate);
 
 	std::vector<std::string> GetInformation() override;
 };
