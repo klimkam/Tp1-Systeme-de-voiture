@@ -72,6 +72,11 @@ void Company::IteratorToStart()
 	}
 }
 
+std::vector<E_VehicleType> Company::GetAvailableVehicleTypes()
+{
+	return m_availableTypesOfVehicle;
+}
+
 void Company::IteratorToEnd()
 {
 	while (m_vehicleCollectionIterator != m_vehicleCollection.end())

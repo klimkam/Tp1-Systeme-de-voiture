@@ -29,6 +29,7 @@ public:
 
 	std::string GetCompanyName();
 	std::vector<std::string> GetInformation();
+	std::vector<E_VehicleType> GetAvailableVehicleTypes();
 
 	void RemoveVehicle();
 };

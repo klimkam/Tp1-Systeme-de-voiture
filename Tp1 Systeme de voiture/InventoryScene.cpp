@@ -244,18 +244,29 @@ void InventoryScene::CreateNewVehicle()
 		return;
 	}
 	m_company->AddNewVehicle(newVehicle);
+	m_company->IteratorToStart();
 }
 
 E_VehicleType InventoryScene::AskVehicleType() {
 	while (true) {
-		std::cout << "Enter the Vehicle Type (Airplane, Car): " << std::endl;
+		std::vector<E_VehicleType> tempVehicleTypes = m_company->GetAvailableVehicleTypes();
+		bool companyCanContainAirplanes = std::find(tempVehicleTypes.begin(), tempVehicleTypes.end(), E_VehicleType::Airplain) != tempVehicleTypes.end();
+		bool companyCanContainCars = std::find(tempVehicleTypes.begin(), tempVehicleTypes.end(), E_VehicleType::Car) != tempVehicleTypes.end();
+
+		std::cout << "Enter the Vehicle Type (";
+		std::cout << ((companyCanContainAirplanes)?"airplane" : "");
+		std::cout << ((companyCanContainAirplanes && companyCanContainCars) ? ", " : "");
+		std::cout << ((companyCanContainCars) ? "car" : "");
+		std::cout << "): " << std::endl;
 		std::string newVehicleType;
 		std::cin >> newVehicleType;
 
 		std::transform(newVehicleType.begin(), newVehicleType.end(), newVehicleType.begin(), [](unsigned char c) { return std::tolower(c); });
 
 		if (M_NamesToVehicleType.count(newVehicleType)) {
-			return (M_NamesToVehicleType[newVehicleType]);
+			if ((M_NamesToVehicleType[newVehicleType] == E_VehicleType::Car && companyCanContainCars) || (M_NamesToVehicleType[newVehicleType] == E_VehicleType::Airplain && companyCanContainAirplanes)) {
+				return (M_NamesToVehicleType[newVehicleType]);
+			}
 		}
 	}
 }
@@ -340,6 +351,7 @@ void InventoryScene::GetNextCompany() {
 	m_company->IteratorToStart();
 	m_company->GetPreviousVehicle();
 }
+
 void InventoryScene::GetPreviousCompany() {
 	m_company = m_companyManager->GetPreviousCompanyFromIterator();
 	m_company->IteratorToEnd();
