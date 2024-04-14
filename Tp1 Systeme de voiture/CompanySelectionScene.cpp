@@ -30,6 +30,7 @@ Scene* CompanySelectionScene::HandleInput(char input)
 Scene* CompanySelectionScene::HandleStringInput(std::string input)
 {
 	Company* tempCompany = m_companyManager->GetCompanyFromName(input);
+
 	if (tempCompany) {
 		m_inventoryScene->SetCompany(tempCompany);
 		return m_inventoryScene;

@@ -1,16 +1,17 @@
 #include "CompanyManager.h"
+#include <algorithm>
 
 CompanyManager::CompanyManager()
 {
 	M_Companies = {
-		{"Tesla", new Company("Tesla", m_allAvailableVehicles, M_vehicles["Tesla"])},
-		{"Chevrolet", new Company("Chevrolet", m_CarsAvailable, M_vehicles["Chevrolet"])},
-		{"Toyota", new Company("Toyota", m_CarsAvailable, M_vehicles["Toyota"])},
-		{"BMW", new Company("BMW", m_CarsAvailable, M_vehicles["BMW"])},
-		{"Volkswagen", new Company("Volkswagen", m_CarsAvailable, M_vehicles["Volkswagen"])},
-		{"Boeing", new Company("Boeing", m_AirplanesAvailable, M_vehicles["Boeing"])},
-		{"Airbus", new Company("Airbus", m_AirplanesAvailable, M_vehicles["Airbus"])},
-		{"Bombardier", new Company("Bombardier", m_AirplanesAvailable, M_vehicles["Bombardier"])},
+		{"tesla", new Company("Tesla", m_allAvailableVehicles, M_vehicles["Tesla"])},
+		{"chevrolet", new Company("Chevrolet", m_CarsAvailable, M_vehicles["Chevrolet"])},
+		{"toyota", new Company("Toyota", m_CarsAvailable, M_vehicles["Toyota"])},
+		{"bmw", new Company("BMW", m_CarsAvailable, M_vehicles["BMW"])},
+		{"volkswagen", new Company("Volkswagen", m_CarsAvailable, M_vehicles["Volkswagen"])},
+		{"boeing", new Company("Boeing", m_AirplanesAvailable, M_vehicles["Boeing"])},
+		{"airbus", new Company("Airbus", m_AirplanesAvailable, M_vehicles["Airbus"])},
+		{"bombardier", new Company("Bombardier", m_AirplanesAvailable, M_vehicles["Bombardier"])},
 	};
 
 	I_M_Companies = M_Companies.begin();
@@ -18,6 +19,9 @@ CompanyManager::CompanyManager()
 
 Company* CompanyManager::GetCompanyFromName(std::string companyName)
 {
+	//Sets the response string to lower case, so it lowers the amount of validations needed
+	std::transform(companyName.begin(), companyName.end(), companyName.begin(), [](unsigned char c) { return std::tolower(c); });
+
 	if (M_Companies.find(companyName) == M_Companies.end()) {
 		return nullptr;
 	}
