@@ -3,14 +3,14 @@
 CompanyManager::CompanyManager()
 {
 	M_Companies = {
-		{"Tesla", new Company("Tesla", m_allAvailableVehicles, m_Tesla_vehicleCollection)},
-		{"Chevrolet", new Company("Chevrolet", m_CarsAvailable, m_Tesla_vehicleCollection)},
-		{"Toyota", new Company("Toyota", m_CarsAvailable, m_Tesla_vehicleCollection)},
-		{"BMW", new Company("BMW", m_CarsAvailable, m_Tesla_vehicleCollection)},
-		{"Volkswagen", new Company("Volkswagen", m_CarsAvailable, m_Tesla_vehicleCollection)},
-		{"Boeing", new Company("Boeing", m_AirplanesAvailable, m_Tesla_vehicleCollection)},
-		{"Airbus", new Company("Airbus", m_AirplanesAvailable, m_Tesla_vehicleCollection)},
-		{"Bombardier", new Company("Bombardier", m_AirplanesAvailable, m_Tesla_vehicleCollection)},
+		{"Tesla", new Company("Tesla", m_allAvailableVehicles, M_vehicles["Tesla"])},
+		{"Chevrolet", new Company("Chevrolet", m_CarsAvailable, M_vehicles["Chevrolet"])},
+		{"Toyota", new Company("Toyota", m_CarsAvailable, M_vehicles["Toyota"])},
+		{"BMW", new Company("BMW", m_CarsAvailable, M_vehicles["BMW"])},
+		{"Volkswagen", new Company("Volkswagen", m_CarsAvailable, M_vehicles["Volkswagen"])},
+		{"Boeing", new Company("Boeing", m_AirplanesAvailable, M_vehicles["Boeing"])},
+		{"Airbus", new Company("Airbus", m_AirplanesAvailable, M_vehicles["Airbus"])},
+		{"Bombardier", new Company("Bombardier", m_AirplanesAvailable, M_vehicles["Bombardier"])},
 	};
 }
 
