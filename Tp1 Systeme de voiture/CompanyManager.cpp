@@ -3,6 +3,7 @@
 
 CompanyManager::CompanyManager()
 {
+	//Here I could read the text file and get company information before parsing it into the M_Companies map
 	M_Companies = {
 		{"tesla", new Company("Tesla", m_allAvailableVehicles, M_vehicles["Tesla"])},
 		{"chevrolet", new Company("Chevrolet", m_CarsAvailable, M_vehicles["Chevrolet"])},
@@ -69,3 +70,5 @@ std::vector<std::string> CompanyManager::GetAllCompanyNames()
 
 	return temp_Names;
 }
+
+//TODO Add some methode to store map into the textFile
