@@ -12,14 +12,27 @@ CompanyManager::CompanyManager()
 		{"Airbus", new Company("Airbus", m_AirplanesAvailable, M_vehicles["Airbus"])},
 		{"Bombardier", new Company("Bombardier", m_AirplanesAvailable, M_vehicles["Bombardier"])},
 	};
+
+	I_M_Companies = M_Companies.begin();
 }
 
-Company* CompanyManager::GetCompany(std::string companyName)
+Company* CompanyManager::GetCompanyFromName(std::string companyName)
 {
 	if (M_Companies.find(companyName) == M_Companies.end()) {
 		return nullptr;
 	}
     return M_Companies[companyName];
+}
+
+Company* CompanyManager::GetCompanyFromIterator()
+{
+	return I_M_Companies->second;
+}
+
+Company* CompanyManager::GetNextCompanyFromIterator()
+{
+	I_M_Companies++;
+	return I_M_Companies->second;
 }
 
 std::vector<std::string> CompanyManager::GetAllCompanyNames()
