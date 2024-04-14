@@ -31,11 +31,27 @@ Company* CompanyManager::GetCompanyFromIterator()
 
 Company* CompanyManager::GetNextCompanyFromIterator()
 {
+	if (next(I_M_Companies) == M_Companies.end()) {
+		while (I_M_Companies != M_Companies.begin())
+		{
+			--I_M_Companies;
+		}
+		return I_M_Companies->second;
+	}
+
 	I_M_Companies++;
 	return I_M_Companies->second;
 }
 Company* CompanyManager::GetPreviousCompanyFromIterator()
 {
+	if (I_M_Companies == M_Companies.begin()) {
+		while (I_M_Companies != M_Companies.end())
+		{
+			++I_M_Companies;
+		}
+		I_M_Companies--;
+		return I_M_Companies->second;
+	}
 	I_M_Companies--;
 	return I_M_Companies->second;
 }
