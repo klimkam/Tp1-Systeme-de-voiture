@@ -4,13 +4,13 @@
 #include "CompanySelectionScene.h"
 #include <vector>
 #include <string>
+#include <functional>
 
 class CarSystem
 {
 	Scene* m_currentScene;
 	CompanyManager* m_company_manager = new CompanyManager();
-
-	InventoryScene* p_inventoryScene = new InventoryScene(m_company_manager->GetCompanyFromIterator());
+	InventoryScene* p_inventoryScene = new InventoryScene(m_company_manager->GetCompanyFromIterator(), m_company_manager);
 	CompanySelectionScene* p_companySelectionScene = new CompanySelectionScene(m_company_manager);
 	
 	MainScene* p_mainScene = new MainScene(p_inventoryScene, p_companySelectionScene);

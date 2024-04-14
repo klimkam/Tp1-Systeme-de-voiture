@@ -25,6 +25,11 @@ InventoryScene::InventoryScene(Company* company)
 	SetUpInfoPromp();
 	m_company = company;
 }
+InventoryScene::InventoryScene(Company* company, CompanyManager* companyManager) {
+	SetUpInfoPromp();
+	m_company = company;
+	m_companyManager = companyManager;
+}
 
 Scene* InventoryScene::HandleInput(char input)
 {
@@ -36,11 +41,13 @@ Scene* InventoryScene::HandleInput(char input)
 		break;
 	case'D':
 	case 'd':
+		if (m_company->IsLastVehicle() && m_isGettingAllCompanies) { GetNextCompany(); }
 		m_company->GetNextVehicle();
 		return this;
 		break;
 	case'A':
 	case 'a':
+		if (m_company->IsFirstVehicle() && m_isGettingAllCompanies) { GetPreviousCompany(); }
 		m_company->GetPreviousVehicle();
 		return this;
 		break;
@@ -200,6 +207,15 @@ bool InventoryScene::IsNumber(const std::string& string)
 		string.end(), [](unsigned char c) { return !std::isdigit(c); }) == string.end();
 }
 
+void InventoryScene::ShowAllCompanies()
+{
+	m_isGettingAllCompanies = true;
+}
+
+void InventoryScene::ShowOneCompany() {
+	m_isGettingAllCompanies = false;
+}
+
 //I would like to create a UI for this if I have time
 //And change the current displayed item to the new one
 void InventoryScene::CreateNewVehicle()
@@ -319,3 +335,9 @@ void InventoryScene::EditVehicle()
 	}
 }
 
+void InventoryScene::GetNextCompany() {
+	m_company = m_companyManager->GetNextCompanyFromIterator();
+}
+void InventoryScene::GetPreviousCompany() {
+	m_company = m_companyManager->GetPreviousCompanyFromIterator();
+}

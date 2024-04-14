@@ -62,6 +62,16 @@ std::vector<std::string> Company::GetInformation()
 	return tempInfo;
 }
 
+bool Company::IsLastVehicle()
+{
+	return next(m_vehicleCollectionIterator) == m_vehicleCollection.end();
+}
+
+bool Company::IsFirstVehicle()
+{
+	return m_vehicleCollectionIterator == m_vehicleCollection.begin();
+}
+
 void Company::RemoveVehicle()
 {
 	m_vehicleCollection.erase(m_vehicleCollectionIterator++);

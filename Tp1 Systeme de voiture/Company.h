@@ -17,8 +17,13 @@ public:
 
 	void AddNewVehicle(Vehicle* vehicle);
 	Vehicle* GetVehicle();
+
 	Vehicle* GetNextVehicle();
 	Vehicle* GetPreviousVehicle();
+
+	bool IsLastVehicle();
+	bool IsFirstVehicle();
+
 	std::string GetCompanyName();
 	std::vector<std::string> GetInformation();
 

@@ -34,6 +34,11 @@ Company* CompanyManager::GetNextCompanyFromIterator()
 	I_M_Companies++;
 	return I_M_Companies->second;
 }
+Company* CompanyManager::GetPreviousCompanyFromIterator()
+{
+	I_M_Companies--;
+	return I_M_Companies->second;
+}
 
 std::vector<std::string> CompanyManager::GetAllCompanyNames()
 {

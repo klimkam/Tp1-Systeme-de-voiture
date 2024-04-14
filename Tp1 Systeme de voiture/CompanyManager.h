@@ -36,6 +36,7 @@ public:
 	Company* GetCompanyFromName(std::string companyName);
 	Company* GetCompanyFromIterator();
 	Company* GetNextCompanyFromIterator();
+	Company* GetPreviousCompanyFromIterator();
 	std::vector<std::string> GetAllCompanyNames();
 };
 
