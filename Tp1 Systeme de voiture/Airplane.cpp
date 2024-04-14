@@ -6,7 +6,6 @@ Airplane::Airplane()
 	m_price = 100000;
 	m_maxPrice = 50000000;
 	m_vehicleType = E_VehicleType::Airplain;
-	m_vehicleId = s_nextAvailableVehicleId++;
 	SetID();
 }
 

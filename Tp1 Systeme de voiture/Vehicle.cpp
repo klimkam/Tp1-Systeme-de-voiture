@@ -5,9 +5,7 @@
 
 Vehicle::Vehicle()
 {
-	m_color = E_Color::Red;
 	m_price = 100000;
-	m_vehicleId = s_nextAvailableVehicleId++;
 }
 
 Vehicle::Vehicle(E_Color color, long price, bool isSold)

@@ -337,7 +337,11 @@ void InventoryScene::EditVehicle()
 
 void InventoryScene::GetNextCompany() {
 	m_company = m_companyManager->GetNextCompanyFromIterator();
+	m_company->IteratorToStart();
+	m_company->GetPreviousVehicle();
 }
 void InventoryScene::GetPreviousCompany() {
 	m_company = m_companyManager->GetPreviousCompanyFromIterator();
+	m_company->IteratorToEnd();
+	m_company->GetNextVehicle();
 }

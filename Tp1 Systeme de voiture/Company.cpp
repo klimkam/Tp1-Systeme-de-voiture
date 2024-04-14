@@ -42,10 +42,7 @@ Vehicle* Company::GetNextVehicle()
 {
 	Vehicle* returnVehicle;
 	if (next(m_vehicleCollectionIterator) == m_vehicleCollection.end()) {
-		while (m_vehicleCollectionIterator != m_vehicleCollection.begin())
-		{
-			--m_vehicleCollectionIterator;
-		}
+		IteratorToStart();
 		returnVehicle = GetVehicle();
 		return returnVehicle;
 	}
@@ -67,6 +64,23 @@ bool Company::IsLastVehicle()
 	return next(m_vehicleCollectionIterator) == m_vehicleCollection.end();
 }
 
+void Company::IteratorToStart()
+{
+	while (m_vehicleCollectionIterator != m_vehicleCollection.begin())
+	{
+		--m_vehicleCollectionIterator;
+	}
+}
+
+void Company::IteratorToEnd()
+{
+	while (m_vehicleCollectionIterator != m_vehicleCollection.end())
+	{
+		++m_vehicleCollectionIterator;
+	}
+	m_vehicleCollectionIterator--;
+}
+
 bool Company::IsFirstVehicle()
 {
 	return m_vehicleCollectionIterator == m_vehicleCollection.begin();
@@ -81,11 +95,7 @@ Vehicle* Company::GetPreviousVehicle()
 {
 	Vehicle* returnVehicle;
 	if (m_vehicleCollectionIterator == m_vehicleCollection.begin()) {
-		while (m_vehicleCollectionIterator != m_vehicleCollection.end())
-		{
-			++m_vehicleCollectionIterator;
-		}
-		m_vehicleCollectionIterator--;
+		IteratorToEnd();
 		returnVehicle = GetVehicle();
 		return returnVehicle;
 	}

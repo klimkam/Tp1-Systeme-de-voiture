@@ -24,6 +24,9 @@ public:
 	bool IsLastVehicle();
 	bool IsFirstVehicle();
 
+	void IteratorToStart();
+	void IteratorToEnd();
+
 	std::string GetCompanyName();
 	std::vector<std::string> GetInformation();
 
