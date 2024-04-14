@@ -7,6 +7,7 @@
 class CompanySelectionScene : public Scene
 {
 	CompanyManager* m_companyManager;
+	Scene* m_previousScene;
 	InventoryScene* m_inventoryScene;
 
 public:
@@ -15,6 +16,8 @@ public:
 
 	Scene* HandleInput(char input) override;
 	Scene* HandleStringInput(std::string input) override;
+
+	void SetPreviousScene(Scene* previousScene);
 
 private:
 	void DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag) override;

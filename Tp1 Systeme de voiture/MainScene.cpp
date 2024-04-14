@@ -14,13 +14,19 @@ Scene* MainScene::HandleInput(char input)
 	switch (input)
 	{
 	case'I':
-	case'i':
+	case'i': {
+		m_inventoryScene->SetPreviousScene(this);
 		return m_inventoryScene;
 		break;
+	}
 	case'C':
-	case'c':
+	case'c': {
+		m_inventoryScene->SetPreviousScene(m_companyScene);
+		CompanySelectionScene* companyScene = (CompanySelectionScene*)m_companyScene;
+		companyScene->SetPreviousScene(this);
 		return m_companyScene;
 		break;
+	}
 	default:
 		return NULL;
 		break;

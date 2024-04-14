@@ -54,6 +54,11 @@ Scene* InventoryScene::HandleInput(char input)
 		EditVehicle();
 		return this;
 		break;
+	case'C':
+	case'c':
+		CreateNewVehicle();
+		return this;
+		break;
 	default:
 		return this;
 		break;
@@ -130,7 +135,7 @@ const void InventoryScene::PrintVehicleInformation(int xPos, int startXPos, int&
 	retFlag = false;
 }
 
-void InventoryScene::EditPrice()
+long InventoryScene::AskPrice()
 {
 	bool isTheValueValid = false;
 
@@ -141,12 +146,12 @@ void InventoryScene::EditPrice()
 
 		if (IsNumber(newPrice)) {
 			isTheValueValid = IsNumber(newPrice);
-			m_company->GetVehicle()->SetPrice(std::stoi(newPrice));
+			return(std::stol(newPrice));
 		}
 	}
 }
 
-void InventoryScene::EditColor()
+E_Color InventoryScene::AskColor()
 {
 	bool isTheValueValid = false;
 	
@@ -159,13 +164,12 @@ void InventoryScene::EditColor()
 		std::transform(newColor.begin(), newColor.end(), newColor.begin(), [](unsigned char c) { return std::tolower(c); });
 
 		if (M_NamesToColors.count(newColor)) {
-			m_company->GetVehicle()->SetColor(M_NamesToColors[newColor]);
-			isTheValueValid = true;
+			return (M_NamesToColors[newColor]);
 		}
 	}
 }
 
-void InventoryScene::EditMaxCapacity()
+int InventoryScene::AskMaxCapacity()
 {
 	bool isTheValueValid = false;
 
@@ -176,19 +180,18 @@ void InventoryScene::EditMaxCapacity()
 
 		if (IsNumber(newMaxCapacity)) {
 			isTheValueValid = IsNumber(newMaxCapacity);
-			Airplane* currentAirplane = (Airplane*)(m_company->GetVehicle());
-			currentAirplane->SetMaxCapacity(std::stoi(newMaxCapacity));
+			return std::stoi(newMaxCapacity);
 		}
 	}
 }
 
-void InventoryScene::EditLastInspectionDate()
+std::string InventoryScene::AskLastInspectionDate()
 {
 	std::cout << "Enter the new Last Inspection Date: " << std::endl;
 	std::string newLastInspectionDate;
 	std::cin >> newLastInspectionDate;
-	Airplane* currentAirplane = (Airplane*)(m_company->GetVehicle());
-	currentAirplane->SetLastInspectionDate(newLastInspectionDate);
+
+	return newLastInspectionDate;
 }
 
 bool InventoryScene::IsNumber(const std::string& string)
@@ -197,10 +200,53 @@ bool InventoryScene::IsNumber(const std::string& string)
 		string.end(), [](unsigned char c) { return !std::isdigit(c); }) == string.end();
 }
 
-void InventoryScene::EditIsSold()
+//I would like to create a UI for this if I have time
+//And change the current displayed item to the new one
+void InventoryScene::CreateNewVehicle()
 {
-	bool isTheValueValid = false;
-	while (isTheValueValid) {
+	Vehicle* newVehicle;
+
+	switch (AskVehicleType()) {
+	case(E_VehicleType::Car): {
+		newVehicle = new Car();
+		newVehicle->SetPrice(AskPrice());
+		newVehicle->SetColor(AskColor());
+		newVehicle->SetIsSold(AskIsSold());
+		break;
+	}
+	case(E_VehicleType::Airplain): {
+		newVehicle = new Airplane();
+		Airplane* newAirplane = (Airplane*)(newVehicle);
+		newAirplane->SetPrice(AskPrice());
+		newAirplane->SetColor(AskColor());
+		newAirplane->SetIsSold(AskIsSold());
+		newAirplane->SetLastInspectionDate(AskLastInspectionDate());
+		newAirplane->SetMaxCapacity(AskMaxCapacity());
+		break;
+	}
+	default:
+		return;
+	}
+	m_company->AddNewVehicle(newVehicle);
+}
+
+E_VehicleType InventoryScene::AskVehicleType() {
+	while (true) {
+		std::cout << "Enter the Vehicle Type (Airplane, Car): " << std::endl;
+		std::string newVehicleType;
+		std::cin >> newVehicleType;
+
+		std::transform(newVehicleType.begin(), newVehicleType.end(), newVehicleType.begin(), [](unsigned char c) { return std::tolower(c); });
+
+		if (M_NamesToVehicleType.count(newVehicleType)) {
+			return (M_NamesToVehicleType[newVehicleType]);
+		}
+	}
+}
+
+bool InventoryScene::AskIsSold()
+{
+	while (true) {
 		std::cout << "Enter the new Is Sold value (true, false): " << std::endl;
 		std::string newIsSold;
 		std::cin >> newIsSold;
@@ -209,14 +255,11 @@ void InventoryScene::EditIsSold()
 
 		if (newIsSold == "true") {
 			m_company->GetVehicle()->SetIsSold(true);
-			isTheValueValid = true;
-			continue;
+			return true;
 		}
 
 		if (newIsSold == "false") {
-			m_company->GetVehicle()->SetIsSold(false);
-			isTheValueValid = true;
-			continue;
+			return false;
 		}
 	}	
 }
@@ -234,6 +277,7 @@ const void InventoryScene::DrawASCIIDrawing(int yPos, int xPos, int startXPos, i
 	retFlag = false;
 }
 
+//That's an overcomplicated method and should be divided by small methods, but I run low on time, so meh
 void InventoryScene::EditVehicle()
 {
 	std::cout << "What field do you want to change? (price, color," 
@@ -248,27 +292,29 @@ void InventoryScene::EditVehicle()
 	std::transform(response.begin(), response.end(), response.begin(), [](unsigned char c) { return std::tolower(c);});
 
 	if (response.find("price") != std::string::npos) {
-		EditPrice();
+		m_company->GetVehicle()->SetPrice(AskPrice());
 		return;
 	}
 
 	if (response.find("color") != std::string::npos) {
-		EditColor();
+		m_company->GetVehicle()->SetColor(AskColor());
 		return;
 	}
 
 	if (response.find("max capacity") != std::string::npos && (m_company->GetVehicle()->GetVehicleType() == E_VehicleType::Airplain)) {
-		EditMaxCapacity();
+		Airplane* currentAirplane = (Airplane*)(m_company->GetVehicle());
+		currentAirplane->SetMaxCapacity(AskMaxCapacity());
 		return;
 	}
 
 	if (response.find("last inspection date") != std::string::npos && (m_company->GetVehicle()->GetVehicleType() == E_VehicleType::Airplain)) {
-		EditLastInspectionDate();
+		Airplane* currentAirplane = (Airplane*)(m_company->GetVehicle());
+		currentAirplane->SetLastInspectionDate(AskLastInspectionDate());
 		return;
 	}
 
 	if (response.find("is sold") != std::string::npos) {
-		EditIsSold();
+		m_company->GetVehicle()->SetIsSold(AskIsSold());
 		return;
 	}
 }

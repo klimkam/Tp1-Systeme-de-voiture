@@ -4,6 +4,7 @@
 #include <string>
 #include "Enums.h"
 #include "Vehicle.h"
+#include <iostream>
 
 Company::Company(std::string companyName, std::vector<E_VehicleType> availableTpesOfVehicle, std::list<Vehicle*> vehicleCollection) {
 	m_companyName = companyName;
@@ -24,7 +25,11 @@ void Company::AddNewVehicle(Vehicle* vehicle)
 		if (vehicle->GetVehicleType() == m_availableTypesOfVehicle.at(i)) isAbleToAdd = true;
 	}
 
-	if (!isAbleToAdd) return;
+	if (!isAbleToAdd) { 
+		std::cout << "Wasn't Able to add" << std::endl;
+		std::cin;
+		return; 
+	}
 	m_vehicleCollection.push_front(vehicle);
 }
 

@@ -18,7 +18,13 @@ void CompanySelectionScene::SetInventoryScene(InventoryScene* inventoryScene)
 
 Scene* CompanySelectionScene::HandleInput(char input)
 {
-	return nullptr;
+	switch (input) {
+	case('B'):
+	case('b'):
+		return m_previousScene;
+	default:
+		return this;
+	}
 }
 
 Scene* CompanySelectionScene::HandleStringInput(std::string input)
@@ -30,6 +36,11 @@ Scene* CompanySelectionScene::HandleStringInput(std::string input)
 	}
 
 	return this;
+}
+
+void CompanySelectionScene::SetPreviousScene(Scene* previousScene)
+{
+	m_previousScene = previousScene;
 }
 
 void CompanySelectionScene::DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag)

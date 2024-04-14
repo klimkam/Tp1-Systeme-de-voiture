@@ -1,6 +1,7 @@
 #include "Vehicle.h"
 #include "Maps.h"
 #include <stdlib.h>
+#include <iostream>
 
 Vehicle::Vehicle()
 {

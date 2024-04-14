@@ -4,6 +4,7 @@
 #include "Enums.h"
 #include "Car.h"
 #include "CompanyManager.h"
+#include "Enums.h"
 
 #include <vector>
 
@@ -24,6 +25,12 @@ class InventoryScene : public Scene
 	{"count" ,E_Color::Count},
 	};
 
+	//That's a bad idea tho, it has to be automatically created using values in Enums.h, but I run low on time, so meh
+	class std::map <std::string, E_VehicleType> M_NamesToVehicleType = {
+	{"car", E_VehicleType::Car},
+	{"airplane", E_VehicleType::Airplain},
+	};
+
 public:
 	InventoryScene();
 	InventoryScene(Scene* previousScene);
@@ -36,14 +43,17 @@ public:
 private:
 	void SetUpInfoPromp();
 	void DrawMainPage(int xPos, int yPos, int startXPos, bool& retFlag) override;
-	void EditVehicle();
 
+	void EditVehicle();
 	//price, color, max capacity, last inspection date, is sold
-	void EditPrice();
-	void EditColor();
-	void EditMaxCapacity();
-	void EditLastInspectionDate();
-	void EditIsSold();
+	long AskPrice();
+	E_Color AskColor();
+	int AskMaxCapacity();
+	std::string AskLastInspectionDate();
+	bool AskIsSold();
+	E_VehicleType AskVehicleType();
+
+	void CreateNewVehicle();
 
 	bool IsNumber(const std::string& string);
 
