@@ -8,6 +8,8 @@ class Airplane : public Vehicle
 
 public:
 	Airplane();
+	Airplane(int id, long price, E_Color color, bool isSold, short maxCapacity, std::string lastInspectionDate);
+
 	void SetMaxCapacity(int amount);
 	void SetLastInspectionDate(std::string newInspectionDate);
 

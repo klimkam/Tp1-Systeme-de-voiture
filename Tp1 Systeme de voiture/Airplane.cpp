@@ -9,6 +9,19 @@ Airplane::Airplane()
 	SetID();
 }
 
+Airplane::Airplane(int id, long price, E_Color color, bool isSold, short maxCapacity, std::string lastInspectionDate)
+{
+	m_vehicleType = E_VehicleType::Airplain;
+	m_maxPrice = 50000000;
+
+	m_vehicleId = id;
+	SetPrice(price);
+	SetColor(color);
+	SetIsSold(isSold);
+	SetMaxCapacity(maxCapacity);
+	SetLastInspectionDate(lastInspectionDate);
+}
+
 void Airplane::SetMaxCapacity(int amount)
 {
 	if (amount < 1) {

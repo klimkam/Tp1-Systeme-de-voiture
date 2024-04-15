@@ -11,3 +11,12 @@ Car::Car()
 	m_vehicleType = E_VehicleType::Car;
 	SetID();
 }
+
+Car::Car(int id, long price, E_Color color, bool isSold)
+{
+	m_vehicleType = E_VehicleType::Car;
+	m_vehicleId = id;
+	SetPrice(price);
+	SetColor(color);
+	SetIsSold(isSold);
+}

@@ -1,31 +1,24 @@
 ---
 company_name:Airbus
 available_vehicles:[
-	{ Airplain },
+	{ 
+Airplain
+ },
 ]
 vehicles:[
 	{
 		vehicle_type:Airplain
-		vehicle_id:89
-		vehicle_price:100000
-		vehicle_color:Red
+		vehicle_id:84
+		vehicle_price:50000000
+		vehicle_color:Orange
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
 		vehicle_lastInspectionDate:Now
 	},
 	{
 		vehicle_type:Airplain
-		vehicle_id:88
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
-		vehicle_type:Airplain
-		vehicle_id:87
-		vehicle_price:100000
+		vehicle_id:85
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -34,7 +27,7 @@ vehicles:[
 	{
 		vehicle_type:Airplain
 		vehicle_id:86
-		vehicle_price:100000
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -42,8 +35,8 @@ vehicles:[
 	},
 	{
 		vehicle_type:Airplain
-		vehicle_id:85
-		vehicle_price:100000
+		vehicle_id:87
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -51,8 +44,17 @@ vehicles:[
 	},
 	{
 		vehicle_type:Airplain
-		vehicle_id:84
-		vehicle_price:100000
+		vehicle_id:88
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:89
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -63,49 +65,51 @@ vehicles:[
 ---
 company_name:BMW
 available_vehicles:[
-	{ Car },
+	{ 
+Car
+ },
 ]
 vehicles:[
 	{
 		vehicle_type:Car
-		vehicle_id:71
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:70
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:69
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:68
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:66
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
 		vehicle_id:67
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
-		vehicle_id:66
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:68
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:69
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:70
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:71
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 ]
@@ -113,40 +117,15 @@ vehicles:[
 ---
 company_name:Boeing
 available_vehicles:[
-	{ Airplain },
+	{ 
+Airplain
+ },
 ]
 vehicles:[
 	{
 		vehicle_type:Airplain
-		vehicle_id:83
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
-		vehicle_type:Airplain
-		vehicle_id:82
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
-		vehicle_type:Airplain
-		vehicle_id:81
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
-		vehicle_type:Airplain
-		vehicle_id:80
-		vehicle_price:100000
+		vehicle_id:78
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -155,7 +134,7 @@ vehicles:[
 	{
 		vehicle_type:Airplain
 		vehicle_id:79
-		vehicle_price:100000
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -163,8 +142,35 @@ vehicles:[
 	},
 	{
 		vehicle_type:Airplain
-		vehicle_id:78
-		vehicle_price:100000
+		vehicle_id:80
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:81
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:82
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:83
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -175,40 +181,15 @@ vehicles:[
 ---
 company_name:Bombardier
 available_vehicles:[
-	{ Airplain },
+	{ 
+Airplain
+ },
 ]
 vehicles:[
 	{
 		vehicle_type:Airplain
-		vehicle_id:95
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
-		vehicle_type:Airplain
-		vehicle_id:94
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
-		vehicle_type:Airplain
-		vehicle_id:93
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
-		vehicle_type:Airplain
-		vehicle_id:92
-		vehicle_price:100000
+		vehicle_id:90
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -217,7 +198,7 @@ vehicles:[
 	{
 		vehicle_type:Airplain
 		vehicle_id:91
-		vehicle_price:100000
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -225,8 +206,35 @@ vehicles:[
 	},
 	{
 		vehicle_type:Airplain
-		vehicle_id:90
-		vehicle_price:100000
+		vehicle_id:92
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:93
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:94
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:95
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -237,49 +245,51 @@ vehicles:[
 ---
 company_name:Chevrolet
 available_vehicles:[
-	{ Car },
+	{ 
+Car
+ },
 ]
 vehicles:[
 	{
 		vehicle_type:Car
-		vehicle_id:59
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:58
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:57
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:56
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:54
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
 		vehicle_id:55
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
-		vehicle_id:54
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:56
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:57
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:58
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:59
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 ]
@@ -287,30 +297,22 @@ vehicles:[
 ---
 company_name:Tesla
 available_vehicles:[
-	{ Car },
-	{ Airplain },
+	{ 
+CarAirplain
+ },
 ]
 vehicles:[
 	{
-		vehicle_type:Airplain
-		vehicle_id:53
-		vehicle_price:100000
-		vehicle_color:Red
-		vehicle_isSold:0
-		vehicle_maxCapacity:1
-		vehicle_lastInspectionDate:Now
-	},
-	{
 		vehicle_type:Car
-		vehicle_id:52
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:48
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Airplain
-		vehicle_id:51
-		vehicle_price:100000
+		vehicle_id:49
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -319,14 +321,14 @@ vehicles:[
 	{
 		vehicle_type:Car
 		vehicle_id:50
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Airplain
-		vehicle_id:49
-		vehicle_price:100000
+		vehicle_id:51
+		vehicle_price:1
 		vehicle_color:Red
 		vehicle_isSold:0
 		vehicle_maxCapacity:1
@@ -334,59 +336,70 @@ vehicles:[
 	},
 	{
 		vehicle_type:Car
-		vehicle_id:48
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:52
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Airplain
+		vehicle_id:53
+		vehicle_price:1
+		vehicle_color:Red
+		vehicle_isSold:0
+		vehicle_maxCapacity:1
+		vehicle_lastInspectionDate:Now
 	},
 ]
 ---
 ---
 company_name:Toyota
 available_vehicles:[
-	{ Car },
+	{ 
+Car
+ },
 ]
 vehicles:[
 	{
 		vehicle_type:Car
-		vehicle_id:65
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:64
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:63
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:62
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:60
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
 		vehicle_id:61
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
-		vehicle_id:60
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:62
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:63
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:64
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:65
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 ]
@@ -394,49 +407,51 @@ vehicles:[
 ---
 company_name:Volkswagen
 available_vehicles:[
-	{ Car },
+	{ 
+Car
+ },
 ]
 vehicles:[
 	{
 		vehicle_type:Car
-		vehicle_id:77
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:76
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:75
-		vehicle_price:30372
-		vehicle_color:Green
-		vehicle_isSold:0
-	},
-	{
-		vehicle_type:Car
-		vehicle_id:74
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:72
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
 		vehicle_id:73
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 	{
 		vehicle_type:Car
-		vehicle_id:72
-		vehicle_price:30372
-		vehicle_color:Green
+		vehicle_id:74
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:75
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:76
+		vehicle_price:6912
+		vehicle_color:Blue
+		vehicle_isSold:0
+	},
+	{
+		vehicle_type:Car
+		vehicle_id:77
+		vehicle_price:6912
+		vehicle_color:Blue
 		vehicle_isSold:0
 	},
 ]
