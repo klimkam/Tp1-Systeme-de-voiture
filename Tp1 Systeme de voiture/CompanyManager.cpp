@@ -92,10 +92,12 @@ void CompanyManager::SaveProgram()
 			saveFile << "company_name:" << imap.second->GetCompanyName() << "\n";
 			saveFile << "available_vehicles:[\n";
 			saveFile << "	{ \n";
+
 			for (auto const& vehicleTypeItem : imap.second->GetAvailableVehicleTypes()) {
-				saveFile << M_VehicleTypeToNames[vehicleTypeItem];
+				saveFile << M_VehicleTypeToNames[vehicleTypeItem] << "\n";
 			}
-			saveFile << "\n },\n";
+
+			saveFile << "},\n";
 			saveFile << "]\n";
 			saveFile << "vehicles:[\n";
 			for (auto const& vehicleItem : imap.second->GetVehicleCollection()) {
