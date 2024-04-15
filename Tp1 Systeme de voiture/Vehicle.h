@@ -13,7 +13,7 @@ protected:
 
 	E_Color m_color = E_Color::Count;
 	E_VehicleType m_vehicleType = E_VehicleType::Count;
-	int m_price = 0;
+	long m_price = 0;
 	long m_maxPrice = 400000;
 	bool m_isSold = false;
 
