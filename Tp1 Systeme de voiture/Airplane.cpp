@@ -27,6 +27,16 @@ void Airplane::SetLastInspectionDate(std::string newInspectionDate)
 	m_lastInspectionDate = newInspectionDate;
 }
 
+std::string Airplane::GetLastInspectionDate()
+{
+	return m_lastInspectionDate;
+}
+
+short Airplane::GetMaxCapacity()
+{
+	return m_maxCapacity;
+}
+
 std::vector<std::string> Airplane::GetInformation()
 {
 	std::vector<std::string> tempInfo = {

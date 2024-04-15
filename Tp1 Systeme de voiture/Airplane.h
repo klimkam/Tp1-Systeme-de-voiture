@@ -11,6 +11,9 @@ public:
 	void SetMaxCapacity(int amount);
 	void SetLastInspectionDate(std::string newInspectionDate);
 
+	std::string GetLastInspectionDate();
+	short GetMaxCapacity();
+
 	std::vector<std::string> GetInformation() override;
 };
 

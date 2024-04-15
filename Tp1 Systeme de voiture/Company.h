@@ -17,7 +17,7 @@ public:
 
 	void AddNewVehicle(Vehicle* vehicle);
 	Vehicle* GetVehicle();
-
+	std::list<Vehicle*> GetVehicleCollection();
 	Vehicle* GetNextVehicle();
 	Vehicle* GetPreviousVehicle();
 

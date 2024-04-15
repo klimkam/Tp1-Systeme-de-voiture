@@ -109,6 +109,11 @@ Vehicle* Company::GetPreviousVehicle()
 	return returnVehicle;
 }
 
+std::list<Vehicle*> Company::GetVehicleCollection()
+{
+	return m_vehicleCollection;
+}
+
 std::string Company::GetCompanyName()
 {
 	return m_companyName;

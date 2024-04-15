@@ -46,6 +46,21 @@ class CompanyManager
 		{"Bombardier", { new Airplane(), new Airplane() , new Airplane() , new Airplane() , new Airplane() , new Airplane() }},
 	};
 
+	class std::map <E_VehicleType, std::string> M_VehicleTypeToNames = {
+	{E_VehicleType::Car, "Car"},
+	{E_VehicleType::Airplain, "Airplain"},
+	};
+
+	class std::map <E_Color, std::string> M_ColorToNames = {
+	{E_Color::Red, "Red"},
+	{E_Color::Blue, "Blue"},
+	{E_Color::Green, "Green"},
+	{E_Color::Violet, "Violet"},
+	{E_Color::Pink, "Pink"},
+	{E_Color::Orange, "Orange"},
+	{E_Color::Count, "Count"},
+	};
+
 
 public:
 	CompanyManager();
@@ -54,5 +69,7 @@ public:
 	Company* GetNextCompanyFromIterator();
 	Company* GetPreviousCompanyFromIterator();
 	std::vector<std::string> GetAllCompanyNames();
+
+	void SaveProgram();
 };
 

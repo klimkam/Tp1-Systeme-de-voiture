@@ -1,5 +1,7 @@
 #include "CompanyManager.h"
 #include <algorithm>
+#include <iostream>
+#include <fstream>
 
 CompanyManager::CompanyManager()
 {
@@ -16,6 +18,7 @@ CompanyManager::CompanyManager()
 	};
 
 	I_M_Companies = M_Companies.begin();
+	SaveProgram();
 }
 
 Company* CompanyManager::GetCompanyFromName(std::string companyName)
@@ -66,9 +69,47 @@ std::vector<std::string> CompanyManager::GetAllCompanyNames()
 	std::vector<std::string> temp_Names;
 
 	for (auto const& imap : M_Companies)
+	{
 		temp_Names.push_back("" + imap.first);
+	}
 
 	return temp_Names;
+}
+
+void CompanyManager::SaveProgram()
+{
+	std::ofstream saveFile("VehicleSystem.txt");
+
+	if (saveFile.is_open()) {
+		for (auto const& imap : M_Companies) {
+			saveFile << "---\n";
+			saveFile << "company_name:" << imap.second->GetCompanyName() << "\n";
+			saveFile << "available_vehicles:[\n";
+			for (auto const& vehicleTypeItem : imap.second->GetAvailableVehicleTypes()) {
+				saveFile << "	{ " <<M_VehicleTypeToNames[vehicleTypeItem] << " },\n";
+			}
+			saveFile << "]\n";
+			saveFile << "vehicles:[\n";
+			for (auto const& vehicleItem : imap.second->GetVehicleCollection()) {
+				saveFile << "	{\n";
+				saveFile << "		vehicle_type:" << M_VehicleTypeToNames[vehicleItem->GetVehicleType()] << "\n";
+				saveFile << "		vehicle_id:" << vehicleItem->GetVehicleId() << "\n";
+				saveFile << "		vehicle_price:" << vehicleItem->GetPrice() << "\n";
+				saveFile << "		vehicle_color:" << M_ColorToNames[vehicleItem->GetColor()] << "\n";
+				saveFile << "		vehicle_isSold:" << vehicleItem->GetIsSold() << "\n";
+				if (vehicleItem->GetVehicleType() == E_VehicleType::Airplain) {
+					Airplane* tempAirplane = (Airplane*)vehicleItem;
+					saveFile << "		vehicle_maxCapacity:" << tempAirplane->GetMaxCapacity() << "\n";
+					saveFile << "		vehicle_lastInspectionDate:" << tempAirplane->GetLastInspectionDate() << "\n";
+				}
+				saveFile << "	},\n";
+			}
+			saveFile << "]\n";
+			saveFile << "---\n";
+		}
+
+		saveFile.close();
+	}
 }
 
 //TODO Add some methode to store map into the textFile

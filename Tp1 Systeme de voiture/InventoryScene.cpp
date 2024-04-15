@@ -54,16 +54,19 @@ Scene* InventoryScene::HandleInput(char input)
 	case'X':
 	case'x':
 		m_company->RemoveVehicle();
+		m_companyManager->SaveProgram();
 		return this;
 		break;
 	case'Z':
 	case'z':
 		EditVehicle();
+		m_companyManager->SaveProgram();
 		return this;
 		break;
 	case'C':
 	case'c':
 		CreateNewVehicle();
+		m_companyManager->SaveProgram();
 		return this;
 		break;
 	default:
